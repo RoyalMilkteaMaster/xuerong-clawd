@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "name": "雪絨 HD",
+  "author": "leslie + Codex",
+  "version": "2.1.3",
+  "description": "Clawd 專用雪絨：高畫質、專用 Q 版邊緣互動、穩定睡醒與無縫循環。",
+  "viewBox": {
+    "x": 0,
+    "y": 0,
+    "width": 512,
+    "height": 512
+  },
+  "layout": {
+    "contentBox": {
+      "x": 48,
+      "y": 16,
+      "width": 416,
+      "height": 472
+    },
+    "marginBox": {
+      "x": 28,
+      "y": 8,
+      "width": 456,
+      "height": 492
+    },
+    "centerX": 256,
+    "baselineY": 488,
+    "visibleHeightRatio": 0.9,
+    "baselineBottomRatio": 0.047
+  },
+  "eyeTracking": {
+    "enabled": false,
+    "states": []
+  },
+  "states": {
+    "idle": [
+      "idle.webp"
+    ],
+    "yawning": [
+      "yawning.webp"
+    ],
+    "dozing": [
+      "dozing.webp"
+    ],
+    "collapsing": [
+      "collapsing.webp"
+    ],
+    "thinking": [
+      "review.webp"
+    ],
+    "working": [
+      "typing.webp"
+    ],
+    "juggling": [
+      "jumping.webp"
+    ],
+    "error": [
+      "failed.webp"
+    ],
+    "attention": [
+      "waving.webp"
+    ],
+    "notification": [
+      "waiting.webp"
+    ],
+    "sweeping": [
+      "typing.webp"
+    ],
+    "carrying": [
+      "running-right.webp"
+    ],
+    "sleeping": [
+      "sleeping.webp"
+    ],
+    "waking": [
+      "waking.webp"
+    ]
+  },
+  "sleepSequence": {
+    "mode": "full"
+  },
+  "workingTiers": [
+    {
+      "minSessions": 3,
+      "file": "typing.webp"
+    },
+    {
+      "minSessions": 2,
+      "file": "typing.webp"
+    },
+    {
+      "minSessions": 1,
+      "file": "typing.webp"
+    }
+  ],
+  "jugglingTiers": [
+    {
+      "minSessions": 2,
+      "file": "jumping.webp"
+    },
+    {
+      "minSessions": 1,
+      "file": "waving.webp"
+    }
+  ],
+  "idleAnimations": [
+    {
+      "file": "review.webp",
+      "duration": 6500
+    },
+    {
+      "file": "waving.webp",
+      "duration": 9000
+    }
+  ],
+  "displayHintMap": {
+    "clawd-working-building.svg": "typing.webp",
+    "clawd-working-typing.svg": "typing.webp",
+    "clawd-headphones-groove.svg": "typing.webp",
+    "clawd-working-juggling.svg": "jumping.webp",
+    "clawd-working-conducting.svg": "jumping.webp",
+    "clawd-idle-reading.svg": "review.webp",
+    "clawd-working-debugger.svg": "review.webp",
+    "clawd-working-thinking.svg": "review.webp"
+  },
+  "updateVisuals": {
+    "checking": "review.webp"
+  },
+  "timings": {
+    "minDisplay": {
+      "attention": 3000,
+      "error": 4500,
+      "notification": 4500,
+      "working": 1000,
+      "thinking": 1000
+    },
+    "autoReturn": {
+      "attention": 3000,
+      "error": 4500,
+      "notification": 4500,
+      "carrying": 3000
+    },
+    "yawnDuration": 1760,
+    "collapseDuration": 1850,
+    "wakeDuration": 2050,
+    "deepSleepTimeout": 600000,
+    "mouseIdleTimeout": 20000,
+    "mouseSleepTimeout": 60000
+  },
+  "hitBoxes": {
+    "default": {
+      "x": 72,
+      "y": 44,
+      "w": 368,
+      "h": 430
+    },
+    "sleeping": {
+      "x": 52,
+      "y": 210,
+      "w": 408,
+      "h": 272
+    },
+    "wide": {
+      "x": 38,
+      "y": 24,
+      "w": 436,
+      "h": 456
+    }
+  },
+  "fileHitBoxes": {
+    "typing.webp": {
+      "x": 42,
+      "y": 26,
+      "w": 428,
+      "h": 458
+    },
+    "grabbed.webp": {
+      "x": 62,
+      "y": 12,
+      "w": 388,
+      "h": 470
+    }
+  },
+  "sleepingHitboxFiles": [
+    "sleeping.webp",
+    "collapsing.webp"
+  ],
+  "wideHitboxFiles": [
+    "failed.webp",
+    "waiting.webp",
+    "jumping.webp",
+    "typing.webp"
+  ],
+  "reactions": {
+    "drag": {
+      "file": "grabbed.webp"
+    },
+    "clickLeft": {
+      "file": "waving.webp",
+      "duration": 2500
+    },
+    "clickRight": {
+      "file": "waiting.webp",
+      "duration": 2500
+    },
+    "annoyed": {
+      "file": "failed.webp",
+      "duration": 3500
+    },
+    "double": {
+      "files": [
+        "jumping.webp"
+      ],
+      "duration": 3500
+    }
+  },
+  "miniMode": {
+    "supported": true,
+    "offsetRatio": 0.486,
+    "flipAssets": true,
+    "states": {
+      "mini-idle": [
+        "mini-idle.webp"
+      ],
+      "mini-alert": [
+        "mini-alert.webp"
+      ],
+      "mini-happy": [
+        "mini-happy.webp"
+      ],
+      "mini-enter": [
+        "mini-enter.webp"
+      ],
+      "mini-peek": [
+        "mini-peek.webp"
+      ],
+      "mini-working": [
+        "mini-working-v213.webp"
+      ],
+      "mini-crabwalk": [
+        "mini-crabwalk.webp"
+      ],
+      "mini-enter-sleep": [
+        "mini-enter-sleep.webp"
+      ],
+      "mini-sleep": [
+        "mini-sleep.webp"
+      ]
+    },
+    "timings": {
+      "minDisplay": {
+        "mini-alert": 4000,
+        "mini-happy": 4000,
+        "mini-peek": 2200
+      },
+      "autoReturn": {
+        "mini-alert": 4000,
+        "mini-happy": 4000,
+        "mini-peek": 2200
+      }
+    },
+    "glyphFlips": {}
+  },
+  "sounds": {
+    "complete": null,
+    "confirm": null
+  }
+}

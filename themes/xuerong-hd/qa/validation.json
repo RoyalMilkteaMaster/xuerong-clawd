@@ -1,0 +1,95 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "assets": [
+    {
+      "name": "failed.webp",
+      "frames": 8,
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "idle.webp",
+      "frames": 6,
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "jumping.webp",
+      "frames": 5,
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "review.webp",
+      "frames": 6,
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "running-left.webp",
+      "frames": 8,
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "running-right.webp",
+      "frames": 8,
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "running.webp",
+      "frames": 6,
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "sleeping.webp",
+      "frames": 6,
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "waiting.webp",
+      "frames": 6,
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "waking.webp",
+      "frames": 5,
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "waving.webp",
+      "frames": 4,
+      "size": [
+        512,
+        512
+      ]
+    }
+  ]
+}

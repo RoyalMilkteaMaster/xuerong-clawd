@@ -1,0 +1,431 @@
+{
+  "ok": true,
+  "assets": [
+    {
+      "asset": "idle.webp",
+      "frames": 7,
+      "durations_ms": [
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125
+      ],
+      "total_duration_ms": 875,
+      "loop": 0,
+      "kind": "closed-loop",
+      "source": "V2 approved asset"
+    },
+    {
+      "asset": "running-right.webp",
+      "frames": 9,
+      "durations_ms": [
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85
+      ],
+      "total_duration_ms": 765,
+      "loop": 0,
+      "kind": "closed-loop",
+      "source": "V2 approved asset"
+    },
+    {
+      "asset": "running-left.webp",
+      "frames": 9,
+      "durations_ms": [
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85
+      ],
+      "total_duration_ms": 765,
+      "loop": 0,
+      "kind": "closed-loop",
+      "source": "V2 approved asset"
+    },
+    {
+      "asset": "waving.webp",
+      "frames": 9,
+      "durations_ms": [
+        90,
+        90,
+        90,
+        90,
+        90,
+        90,
+        90,
+        90,
+        90
+      ],
+      "total_duration_ms": 810,
+      "loop": 0,
+      "kind": "closed-loop",
+      "source": "V2 approved asset"
+    },
+    {
+      "asset": "jumping.webp",
+      "frames": 6,
+      "durations_ms": [
+        105,
+        105,
+        105,
+        105,
+        105,
+        105
+      ],
+      "total_duration_ms": 630,
+      "loop": 0,
+      "kind": "closed-loop",
+      "source": "V2 approved asset"
+    },
+    {
+      "asset": "failed.webp",
+      "frames": 9,
+      "durations_ms": [
+        140,
+        140,
+        140,
+        140,
+        140,
+        140,
+        140,
+        140,
+        140
+      ],
+      "total_duration_ms": 1260,
+      "loop": 0,
+      "kind": "closed-loop",
+      "source": "V2 approved asset"
+    },
+    {
+      "asset": "waiting.webp",
+      "frames": 7,
+      "durations_ms": [
+        135,
+        135,
+        135,
+        135,
+        135,
+        135,
+        135
+      ],
+      "total_duration_ms": 945,
+      "loop": 0,
+      "kind": "closed-loop",
+      "source": "V2 approved asset"
+    },
+    {
+      "asset": "review.webp",
+      "frames": 7,
+      "durations_ms": [
+        135,
+        135,
+        135,
+        135,
+        135,
+        135,
+        135
+      ],
+      "total_duration_ms": 945,
+      "loop": 0,
+      "kind": "closed-loop",
+      "source": "V2 approved asset"
+    },
+    {
+      "asset": "yawning.webp",
+      "frames": 8,
+      "durations_ms": [
+        220,
+        220,
+        220,
+        220,
+        220,
+        220,
+        220,
+        220
+      ],
+      "total_duration_ms": 1760,
+      "loop": 1,
+      "kind": "one-shot",
+      "source": "V2 approved yaw"
+    },
+    {
+      "asset": "dozing.webp",
+      "frames": 5,
+      "durations_ms": [
+        320,
+        320,
+        420,
+        320,
+        520
+      ],
+      "total_duration_ms": 1900,
+      "loop": 0,
+      "kind": "closed-loop",
+      "source": "V2 sleepy upright poses remixed without collapse"
+    },
+    {
+      "asset": "typing.webp",
+      "frames": 8,
+      "durations_ms": [
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110
+      ],
+      "total_duration_ms": 880,
+      "loop": 0,
+      "kind": "closed-loop",
+      "source": "new fixed-laptop typing source"
+    },
+    {
+      "asset": "grabbed.webp",
+      "frames": 8,
+      "durations_ms": [
+        130,
+        130,
+        130,
+        130,
+        110,
+        110,
+        130,
+        130
+      ],
+      "total_duration_ms": 1000,
+      "loop": 0,
+      "kind": "closed-loop",
+      "source": "new fixed-head-grip source"
+    },
+    {
+      "asset": "sleeping.webp",
+      "frames": 8,
+      "durations_ms": [
+        2400,
+        1800,
+        2200,
+        300,
+        260,
+        2400,
+        1800,
+        2400
+      ],
+      "total_duration_ms": 13560,
+      "loop": 0,
+      "kind": "closed-loop",
+      "source": "new mostly-still curled sleep with rare one-eye peek"
+    },
+    {
+      "asset": "collapsing.webp",
+      "frames": 6,
+      "durations_ms": [
+        220,
+        260,
+        280,
+        300,
+        320,
+        600
+      ],
+      "total_duration_ms": 1980,
+      "loop": 0,
+      "kind": "handoff-transition",
+      "source": "new gradual sleep transition; final frame equals sleep start"
+    },
+    {
+      "asset": "waking.webp",
+      "frames": 8,
+      "durations_ms": [
+        220,
+        220,
+        220,
+        240,
+        260,
+        260,
+        280,
+        650
+      ],
+      "total_duration_ms": 2350,
+      "loop": 0,
+      "kind": "handoff-transition",
+      "source": "new single wake; starts at sleep and ends at idle"
+    },
+    {
+      "asset": "mini-idle.webp",
+      "frames": 8,
+      "durations_ms": [
+        260,
+        180,
+        180,
+        260,
+        180,
+        180,
+        260,
+        420
+      ],
+      "total_duration_ms": 1920,
+      "loop": 0,
+      "kind": "closed-loop",
+      "source": "dedicated Q edge idle; corrected Clawd edge orientation"
+    },
+    {
+      "asset": "mini-enter.webp",
+      "frames": 8,
+      "durations_ms": [
+        160,
+        160,
+        170,
+        170,
+        180,
+        180,
+        220,
+        360
+      ],
+      "total_duration_ms": 1600,
+      "loop": 1,
+      "kind": "handoff-transition",
+      "source": "paw/ear-first Q edge entrance; corrected Clawd edge orientation"
+    },
+    {
+      "asset": "mini-peek.webp",
+      "frames": 8,
+      "durations_ms": [
+        180,
+        180,
+        260,
+        180,
+        220,
+        260,
+        180,
+        380
+      ],
+      "total_duration_ms": 1840,
+      "loop": 0,
+      "kind": "closed-loop",
+      "source": "dedicated curious Q edge peek; corrected Clawd edge orientation"
+    },
+    {
+      "asset": "mini-alert.webp",
+      "frames": 8,
+      "durations_ms": [
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        360
+      ],
+      "total_duration_ms": 1620,
+      "loop": 0,
+      "kind": "closed-loop",
+      "source": "dedicated Q edge action source; corrected Clawd edge orientation"
+    },
+    {
+      "asset": "mini-happy.webp",
+      "frames": 8,
+      "durations_ms": [
+        170,
+        170,
+        170,
+        170,
+        170,
+        170,
+        170,
+        340
+      ],
+      "total_duration_ms": 1530,
+      "loop": 0,
+      "kind": "closed-loop",
+      "source": "dedicated Q edge action source; corrected Clawd edge orientation"
+    },
+    {
+      "asset": "mini-crabwalk.webp",
+      "frames": 8,
+      "durations_ms": [
+        140,
+        140,
+        140,
+        140,
+        140,
+        140,
+        140,
+        280
+      ],
+      "total_duration_ms": 1260,
+      "loop": 0,
+      "kind": "closed-loop",
+      "source": "dedicated Q edge action source; corrected Clawd edge orientation"
+    },
+    {
+      "asset": "mini-working-v213.webp",
+      "frames": 8,
+      "durations_ms": [
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        240
+      ],
+      "total_duration_ms": 1080,
+      "loop": 0,
+      "kind": "closed-loop",
+      "source": "dedicated inward-facing Q edge typing source; corrected Clawd edge orientation"
+    },
+    {
+      "asset": "mini-sleep.webp",
+      "frames": 8,
+      "durations_ms": [
+        2400,
+        1800,
+        2200,
+        300,
+        260,
+        2400,
+        1800,
+        2400
+      ],
+      "total_duration_ms": 13560,
+      "loop": 0,
+      "kind": "closed-loop",
+      "source": "dedicated Q edge sleep; corrected Clawd edge orientation"
+    },
+    {
+      "asset": "mini-enter-sleep.webp",
+      "frames": 8,
+      "durations_ms": [
+        170,
+        170,
+        190,
+        190,
+        210,
+        210,
+        240,
+        520
+      ],
+      "total_duration_ms": 1900,
+      "loop": 1,
+      "kind": "handoff-transition",
+      "source": "dedicated Q edge falling-asleep transition; corrected Clawd edge orientation"
+    }
+  ]
+}

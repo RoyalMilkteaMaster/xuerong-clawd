@@ -1,0 +1,40 @@
+name: validate
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  windows-x64:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Focused regression suite
+        shell: pwsh
+        run: >-
+          node --test
+          test/codex-user-input.test.js
+          test/codex-log-monitor.test.js
+          test/agent-runtime-main.test.js
+          test/codex-monitor-callback.test.js
+          test/state.test.js
+          test/session-hud.test.js
+          test/session-hud-style.test.js
+          test/session-ipc.test.js
+          test/mini.test.js
+          test/pet-interaction-ipc.test.js
+          test/hit-renderer.test.js
+          test/visible-margins.test.js
+          test/work-area.test.js
+      - name: Release integrity
+        shell: pwsh
+        run: .\scripts\validate-release.ps1
+

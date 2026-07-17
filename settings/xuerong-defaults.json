@@ -1,0 +1,21 @@
+{
+  "theme": "xuerong-hd",
+  "size": "P:12",
+  "savedPixelWidth": 206,
+  "savedPixelHeight": 206,
+  "sessionHudEnabled": true,
+  "sessionHudShowStateLabels": true,
+  "sessionHudShowElapsed": false,
+  "sessionHudShowContextUsage": true,
+  "sessionHudCleanupDetached": true,
+  "sessionHudPinned": true,
+  "allowEdgePinning": false,
+  "disableMiniMode": false,
+  "keepSizeAcrossDisplays": false,
+  "textScale": 1,
+  "soundMuted": false,
+  "soundVolume": 1,
+  "keepAwakeWhileWorking": false,
+  "lowPowerIdleMode": false
+}
+
