@@ -1,0 +1,3 @@
+release/windows-x64/app.asar.unpacked/** -text
+settings/xuerong-defaults.json -text
+themes/xuerong-hd/theme.json -text
