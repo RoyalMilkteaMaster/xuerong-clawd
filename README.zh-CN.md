@@ -3,9 +3,9 @@
 </p>
 <h1 align="center">Clawd 桌宠</h1>
 <p align="center">
-  <a href="README.md">English</a>
+  <a href="README.en.md">English</a>
   ·
-  <a href="README.zh-TW.md">繁體中文</a>
+  <a href="README.md">繁體中文</a>
   ·
   <a href="README.ko-KR.md">한국어</a>
   ·

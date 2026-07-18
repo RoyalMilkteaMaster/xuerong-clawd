@@ -83,13 +83,17 @@ foreach ($line in Get-Content -LiteralPath $manifestPath) {
 $releaseAsarHash = (Get-FileHash -LiteralPath (Join-Path $releaseRoot "app.asar") -Algorithm SHA256).Hash
 Assert-Equal $releaseAsarHash "90529611FF1E19DCF2D102B70E0D9038877C1DA223484E2DFD1C760803B46A36" "Unexpected release app.asar"
 
-$sourceMonitorHash = (Get-FileHash -LiteralPath (Join-Path $repositoryRoot "agents\codex-log-monitor.js") -Algorithm SHA256).Hash
-$releaseMonitorHash = (Get-FileHash -LiteralPath (Join-Path $releaseRoot "app.asar.unpacked\agents\codex-log-monitor.js") -Algorithm SHA256).Hash
-Assert-Equal $releaseMonitorHash $sourceMonitorHash "Release Codex monitor does not match source"
+function Read-NormalizedText([string]$Path) {
+  return [IO.File]::ReadAllText($Path, $utf8).Replace("`r`n", "`n").Replace("`r", "`n")
+}
 
-$sourceInputHash = (Get-FileHash -LiteralPath (Join-Path $repositoryRoot "agents\codex-user-input.js") -Algorithm SHA256).Hash
-$releaseInputHash = (Get-FileHash -LiteralPath (Join-Path $releaseRoot "app.asar.unpacked\agents\codex-user-input.js") -Algorithm SHA256).Hash
-Assert-Equal $releaseInputHash $sourceInputHash "Release Codex input parser does not match source"
+$sourceMonitor = Read-NormalizedText (Join-Path $repositoryRoot "agents\codex-log-monitor.js")
+$releaseMonitor = Read-NormalizedText (Join-Path $releaseRoot "app.asar.unpacked\agents\codex-log-monitor.js")
+Assert-Equal $releaseMonitor $sourceMonitor "Release Codex monitor does not match source"
+
+$sourceInput = Read-NormalizedText (Join-Path $repositoryRoot "agents\codex-user-input.js")
+$releaseInput = Read-NormalizedText (Join-Path $releaseRoot "app.asar.unpacked\agents\codex-user-input.js")
+Assert-Equal $releaseInput $sourceInput "Release Codex input parser does not match source"
 
 $oversized = Get-ChildItem -LiteralPath $repositoryRoot -Recurse -File |
   Where-Object { $_.Length -ge 100MB }
