@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "name": "雪絨 HD",
   "author": "leslie + Codex",
-  "version": "2.4.0",
-  "description": "Clawd 專用雪絨：保留 2.1.3 原動作與節奏，升級 24/30 FPS、乾淨透明邊緣與自然揮手。",
+  "version": "2.4.1",
+  "description": "Clawd 專用雪絨：一般動作慢 15%，重要反應與過場慢 20%，抓取、睡眠與待機維持原速。",
   "viewBox": {
     "x": 0,
     "y": 0,
@@ -131,8 +131,8 @@
       "attention": 3000,
       "error": 4500,
       "notification": 4500,
-      "working": 1000,
-      "thinking": 1000
+      "working": 1100,
+      "thinking": 1100
     },
     "autoReturn": {
       "attention": 3000,
@@ -140,9 +140,9 @@
       "notification": 4500,
       "carrying": 3000
     },
-    "yawnDuration": 1760,
-    "collapseDuration": 1850,
-    "wakeDuration": 2050,
+    "yawnDuration": 2112,
+    "collapseDuration": 2376,
+    "wakeDuration": 2820,
     "deepSleepTimeout": 600000,
     "mouseIdleTimeout": 20000,
     "mouseSleepTimeout": 60000
@@ -251,12 +251,12 @@
       "minDisplay": {
         "mini-alert": 4000,
         "mini-happy": 4000,
-        "mini-peek": 2200
+        "mini-peek": 2300
       },
       "autoReturn": {
         "mini-alert": 4000,
         "mini-happy": 4000,
-        "mini-peek": 2200
+        "mini-peek": 2300
       }
     },
     "glyphFlips": {}

@@ -2,7 +2,7 @@
 
 [繁體中文](README.md)
 
-Xuerong (雪絨) is a white ragdoll catgirl desktop companion theme for Clawd on Desk. This repository contains the Xuerong 2.2.0 theme, a safe theme-only installer for Clawd 0.12.0, and the complete corresponding source for the legacy Clawd 0.10.0 Windows runtime patch.
+Xuerong (雪絨) is a white ragdoll catgirl desktop companion theme for Clawd on Desk. This repository contains the Xuerong 2.4.1 theme, a safe theme-only installer for Clawd 0.12.0, and the complete corresponding source for the legacy Clawd 0.10.0 Windows runtime patch.
 
 ![Xuerong 30 FPS animation contact sheet](themes/xuerong-hd/qa/smooth-v22/contact-sheet-01.png)
 
@@ -85,7 +85,7 @@ The installer merges only the keys in [settings/xuerong-defaults.json](settings/
 - Upstream: [rullerzhou-afk/clawd-on-desk](https://github.com/rullerzhou-afk/clawd-on-desk)
 - Upstream base commit: `9ccafb84680d7068baa35e2d91c0800f81c7b475`
 - Upstream application version: `0.10.0`
-- Xuerong theme version: `2.2.0`
+- Xuerong theme version: `2.4.1`
 - Xuerong runtime package version: `0.11.0`
 
 The original upstream documentation is retained in [docs/UPSTREAM-README.md](docs/UPSTREAM-README.md).
