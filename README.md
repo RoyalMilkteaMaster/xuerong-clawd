@@ -1,12 +1,28 @@
 # 雪絨 — Clawd on Desk 貓娘桌面寵物
 
+<p align="center">
+  <a href="https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.1.3/Xuerong-HD-Theme-Installer.exe">
+    <img src="https://img.shields.io/badge/Windows-%E4%B8%80%E9%8D%B5%E4%B8%8B%E8%BC%89%E9%9B%AA%E7%B5%A8-0078D4?style=for-the-badge&amp;logo=windows11&amp;logoColor=white" alt="Windows 一鍵下載雪絨安裝器">
+  </a>
+</p>
+
 [English](README.en.md)
 
 雪絨是一隻白色母布偶貓貓娘桌面寵物。這個倉庫包含完整對應原始碼、雪絨 2.1.3 主題、已測試的 Windows x64 執行套件、安全設定範本，以及可以復原的一鍵安裝腳本。
 
-| 1．溫柔雪藍 | 2．活潑眨眼 | 3．害羞愛心 |
-|---|---|---|
-| ![溫柔雪藍](line-avatars/01-gentle-snow-blue.png) | ![活潑眨眼](line-avatars/02-playful-wink.jpg) | ![害羞愛心](line-avatars/03-bashful-heart.jpg) |
+## LINE 頭像
+
+### 1．溫柔雪藍
+
+![溫柔雪藍](01-gentle-snow-blue.png)
+
+### 2．活潑眨眼
+
+![活潑眨眼](02-playful-wink.png)
+
+### 3．害羞愛心
+
+![害羞愛心](03-bashful-heart.png)
 
 ![雪絨動畫總覽](themes/xuerong-hd/qa/all-frames-v21.png)
 
