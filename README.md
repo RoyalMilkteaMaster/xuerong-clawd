@@ -2,7 +2,7 @@
 
 [English](README.en.md)
 
-雪絨是一隻白色母布偶貓貓娘桌面寵物。
+雪絨是一隻白色母布偶貓貓娘桌面寵物。/n
 這個倉庫包含完整對應原始碼、雪絨 2.1.3 主題、已測試的 Windows x64 執行套件、安全設定範本，以及可以復原的一鍵安裝腳本。
 
 ![溫柔雪藍](01-gentle-snow-blue.png)
@@ -15,20 +15,19 @@
 
 ## 功能
 
-- 一般待機、工作、打電腦、睡眠、起床、被抓與互動動畫。
-- 左右螢幕邊緣使用專用半身動畫，不是直接縮小一般角色。
-- 邊緣模式可直接自由拖曳 X/Y，放開時依最終位置智慧判斷是否進入邊緣模式。
-- 一般拖曳可讓角色可見寬度最多約 50% 超出螢幕，不會被透明圖片邊框堵住。
+- 一般待機、agent工作中、待機、起床、被抓...等互動動畫。
+- 邊緣模式專用Q版半身動畫。
+- 自由拖曳系統，放開時依最終位置智慧判斷是否進入邊緣模式。
 - Session HUD 顯示工作位置、執行狀態與 Codex context 進度。
-- Codex 發出 `request_user_input` 時，HUD 會顯示問題與選項。
-- 點選 HUD 選項會複製文字並開啟 Codex；最後送出仍由使用者在 Codex 確認。
-- 安裝前自動備份原本 Clawd 與偏好設定。
+- 可串接LINE、DISCORD、TELEGRAM通知使用者專案完成、或AGENTS正在等待指示。
+- 個性化回覆設定。
+- 一鍵安裝、一鍵卸除功能。
 
 ## 最簡單安裝（Clawd 0.12.0 推薦）
 
 從 [GitHub Releases](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases) 下載 `Xuerong-HD-Theme-Installer.exe`，雙擊一次即可。安裝器只會把雪絨放到目前 Windows 使用者的 Clawd 主題目錄，不會修改 `app.asar`，也不需要系統管理員權限。
 
-安裝後重新開啟 Clawd，進入 `設定 → 主題`，在下方的使用者主題選擇「雪絨 HD」。重複執行同一個 EXE 可以更新主題；解除安裝可執行：
+安裝後重新開啟 Clawd，進入 `設定 → 主題`，在下方的使用者主題選擇「雪絨 HD」。/n重複執行同一個 EXE 可以更新主題；解除安裝可執行：
 
 ```powershell
 .\Xuerong-HD-Theme-Installer.exe /uninstall
@@ -48,10 +47,8 @@
 
 ## 系統需求
 
-- 單純安裝雪絨主題：Windows 10／11 與 Clawd on Desk 0.12.0；ZIP 也可用於其他 Clawd 支援的平台。
-- 完整雪絨修改版功能：Windows 10／11 x64、Clawd on Desk 0.10.0、PowerShell 5.1 或更新版本。
-
-舊的完整功能安裝器只接受官方 0.10.0 x64 `app.asar`，或本倉庫已安裝過的版本。不要在 0.12.0 使用 `-ForceUnsupported`：它會以舊核心覆蓋 0.12.0，而不是把功能安全地合併進新版。
+- 完整雪絨修改版功能：Windows 10／11 x64、Clawd on Desk 0.10.0 以上 、PowerShell 5.1 或更新版本。
+ZIP 也可用於其他 Clawd 支援的平台。
 
 ## Clawd 0.12.0 相容性
 
@@ -63,8 +60,6 @@
 | 從邊緣直接自由拖曳 X/Y、放開智慧判斷 | 不可用；這是雪絨修改版核心功能 |
 | Codex `request_user_input` 的自訂 HUD 選項卡 | 不可用；這是雪絨修改版監視器功能 |
 | 0.12.0 的新版 WSL、Remote Approval、Discord 等功能 | 保留，因為主題安裝器不修改核心 |
-
-雪絨主題已通過 Clawd 0.12.0 的官方 `validate-theme.js` 與 ZIP 匯入器驗證。若要同時保留 0.12.0 新功能和全部雪絨特殊互動，需要另外把修改移植到 0.12.0 核心；本次主題安裝器不做這件事。
 
 ## 完整修改版安裝（僅限 Clawd 0.10.0）
 
