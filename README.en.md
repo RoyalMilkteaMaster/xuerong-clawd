@@ -51,11 +51,9 @@ The old full-runtime installer accepts the official 0.10.0 x64 `app.asar` and th
 
 The theme passes Clawd 0.12.0's official `validate-theme.js` and ZIP importer. Keeping all 0.12.0 features plus every custom Xuerong interaction requires a separate port of the runtime changes; this theme-only installer intentionally does not do that.
 
-## Install
+## Full patched runtime install (Clawd 0.10.0 only)
 
-The instructions below are only for the full patched runtime on Clawd 0.10.0.
-
-Download and extract the release ZIP, open PowerShell in the extracted folder, then run:
+The instructions below are only for the full patched runtime on Clawd 0.10.0. Download and extract the release ZIP, open PowerShell in the extracted folder, then run:
 
 ```powershell
 Set-ExecutionPolicy -Scope Process Bypass

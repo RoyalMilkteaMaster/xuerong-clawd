@@ -4,6 +4,10 @@
 
 雪絨是一隻白色母布偶貓貓娘桌面寵物。這個倉庫包含完整對應原始碼、雪絨 2.1.3 主題、已測試的 Windows x64 執行套件、安全設定範本，以及可以復原的一鍵安裝腳本。
 
+| 1．溫柔雪藍 | 2．活潑眨眼 | 3．害羞愛心 |
+|---|---|---|
+| ![溫柔雪藍](line-avatars/01-gentle-snow-blue.png) | ![活潑眨眼](line-avatars/02-playful-wink.jpg) | ![害羞愛心](line-avatars/03-bashful-heart.jpg) |
+
 ![雪絨動畫總覽](themes/xuerong-hd/qa/all-frames-v21.png)
 
 ## 最簡單安裝（Clawd 0.12.0 推薦）
@@ -51,11 +55,9 @@
 
 雪絨主題已通過 Clawd 0.12.0 的官方 `validate-theme.js` 與 ZIP 匯入器驗證。若要同時保留 0.12.0 新功能和全部雪絨特殊互動，需要另外把修改移植到 0.12.0 核心；本次主題安裝器不做這件事。
 
-## 安裝
+## 完整修改版安裝（僅限 Clawd 0.10.0）
 
-以下是只提供給需要完整雪絨修改版功能、且仍使用 Clawd 0.10.0 的舊安裝方式。
-
-下載並解壓縮 GitHub Release ZIP，在資料夾內開啟 PowerShell：
+以下是只提供給需要完整雪絨修改版功能、且仍使用 Clawd 0.10.0 的舊安裝方式。下載並解壓縮 GitHub Release ZIP，在資料夾內開啟 PowerShell：
 
 ```powershell
 Set-ExecutionPolicy -Scope Process Bypass
@@ -114,4 +116,3 @@ powershell -ExecutionPolicy Bypass -File .\installer\test-theme-installer.ps1
 Clawd on Desk 與修改後程式碼使用 GNU AGPL-3.0，詳見 [LICENSE](LICENSE) 與 [NOTICE.md](NOTICE.md)。
 
 雪絨角色與動畫素材使用獨立的個人非商業分享條款，詳見 [ASSET-LICENSE.md](ASSET-LICENSE.md)。
-
