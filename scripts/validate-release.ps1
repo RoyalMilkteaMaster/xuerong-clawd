@@ -40,7 +40,7 @@ $package = [IO.File]::ReadAllText((Join-Path $repositoryRoot "package.json"), $u
 Assert-Equal $package.version "0.10.0" "Unexpected upstream package version"
 
 $theme = [IO.File]::ReadAllText((Join-Path $themeRoot "theme.json"), $utf8) | ConvertFrom-Json
-Assert-Equal $theme.version "2.1.3" "Unexpected Xuerong theme version"
+Assert-Equal $theme.version "2.2.0" "Unexpected Xuerong theme version"
 $expectedThemeName = ([char]0x96EA) + ([char]0x7D68) + " HD"
 Assert-Equal $theme.name $expectedThemeName "Unexpected Xuerong theme name"
 
@@ -95,8 +95,9 @@ $sourceInput = Read-NormalizedText (Join-Path $repositoryRoot "agents\codex-user
 $releaseInput = Read-NormalizedText (Join-Path $releaseRoot "app.asar.unpacked\agents\codex-user-input.js")
 Assert-Equal $releaseInput $sourceInput "Release Codex input parser does not match source"
 
+$generatedPathPattern = '\\(?:node_modules|build)\\'
 $oversized = Get-ChildItem -LiteralPath $repositoryRoot -Recurse -File |
-  Where-Object { $_.Length -ge 100MB }
+  Where-Object { $_.FullName -notmatch $generatedPathPattern -and $_.Length -ge 100MB }
 if ($oversized) {
   throw "GitHub rejects files >=100 MB: $($oversized.FullName -join ', ')"
 }
@@ -111,6 +112,7 @@ $textExtensions = @('.js', '.json', '.md', '.ps1', '.yml', '.yaml', '.txt', '.ht
 $textFiles = Get-ChildItem -LiteralPath $repositoryRoot -Recurse -File |
   Where-Object {
     $textExtensions -contains $_.Extension.ToLowerInvariant() -and
+    $_.FullName -notmatch $generatedPathPattern -and
     $_.FullName -notmatch '\\docs\\UPSTREAM-README'
   }
 $dummyGitHubTokenPattern = 'ghp_' + 'abcdefghijklmnopqrstuvwxyz[A-Za-z0-9]+'

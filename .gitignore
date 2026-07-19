@@ -91,6 +91,7 @@ tools/check_dark.py
 
 # Debug logs
 logs/
+/build/
 
 # Telegram approval sidecar build artifacts
 bin/cc-connect-clawd/*/cc-connect-clawd
@@ -100,6 +101,8 @@ bin/cc-connect-clawd/*/cc-connect-clawd.exe
 
 # GIF recording tools (not part of main project)
 scripts/*
+!scripts/build-xuerong-smooth.py
+!scripts/qa-xuerong-smooth.py
 !scripts/remote-deploy.sh
 !scripts/run-clawdbot-stress.sh
 !scripts/monitor-clawd-resources.sh

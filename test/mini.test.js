@@ -47,6 +47,7 @@ function makeCtx(theme, stateLog, initialX = 160) {
   const bounds = { x: initialX, y: 180, width: 120, height: 120 };
   return {
     theme,
+    visualLog: [],
     currentState: "idle",
     win: {
       getBounds() { return { ...bounds }; },
@@ -87,8 +88,9 @@ function makeCtx(theme, stateLog, initialX = 160) {
     clampToScreenVisual(x, y, width, height) { return { x, y, width, height }; },
     resolveDisplayState() { return "idle"; },
     getSvgOverride() { return null; },
-    applyState(state) {
+    applyState(state, file) {
       this.currentState = state;
+      this.visualLog.push({ state, file: file || null });
       stateLog.push(state);
     },
   };
@@ -301,6 +303,73 @@ describe("mini mode entry timing", () => {
     ]);
     assert.equal(mini.getMiniMode(), false);
     assert.equal(mini.getMiniTransitioning(), true);
+  });
+
+  it("uses a normal-size walk asset and hands off at the final mini X without a second jump", () => {
+    loader = loadMiniWithElectron({
+      getAllDisplays() {
+        return [{ bounds: { x: 0, y: 0, width: 800, height: 600 }, workArea: { x: 0, y: 0, width: 800, height: 600 } }];
+      },
+    });
+    const stateLog = [];
+    const theme = cloneTheme(_defaultTheme);
+    theme.miniMode.menuEntry = {
+      walkFile: "running-right.webp",
+      walkSpeed: 1,
+      minDuration: 100,
+      maxDuration: 1000,
+      twirlThreshold: 9999,
+    };
+    const ctx = makeCtx(theme, stateLog, 400);
+    const mini = loader.initMini(ctx);
+
+    mini.enterMiniViaMenu();
+    assert.deepStrictEqual(ctx.visualLog[0], {
+      state: "mini-crabwalk",
+      file: "running-right.webp",
+    });
+
+    mock.timers.tick(360);
+    assert.deepStrictEqual(stateLog, ["mini-crabwalk", "mini-enter"]);
+    assert.equal(ctx.getBoundsSnapshot().x, mini.getCurrentMiniX());
+    assert.equal(mini.getMiniMode(), true);
+    assert.equal(mini.getMiniTransitioning(), true);
+
+    mock.timers.tick(1020);
+    assert.deepStrictEqual(stateLog, ["mini-crabwalk", "mini-enter", "mini-idle"]);
+    assert.equal(mini.getMiniTransitioning(), false);
+  });
+
+  it("adds one renderer twirl during a long menu walk and clears it before mini entry", () => {
+    loader = loadMiniWithElectron({
+      getAllDisplays() {
+        return [{ bounds: { x: 0, y: 0, width: 800, height: 600 }, workArea: { x: 0, y: 0, width: 800, height: 600 } }];
+      },
+    });
+    const rendererEvents = [];
+    const theme = cloneTheme(_defaultTheme);
+    theme.miniMode.menuEntry = {
+      walkFile: "running-right.webp",
+      walkSpeed: 1,
+      minDuration: 100,
+      maxDuration: 1000,
+      twirlThreshold: 200,
+      twirlDuration: 100,
+    };
+    const ctx = makeCtx(theme, [], 400);
+    ctx.sendToRenderer = (...args) => rendererEvents.push(args);
+    const mini = loader.initMini(ctx);
+
+    mini.enterMiniViaMenu();
+    mock.timers.tick(180);
+    assert.ok(rendererEvents.some((event) => event[0] === "mini-mode-change"
+      && event[3] && event[3].preEntry === true && event[3].twirl === true));
+
+    mock.timers.tick(220);
+    const twirlEvents = rendererEvents.filter((event) => event[0] === "mini-mode-change"
+      && event[3] && Object.prototype.hasOwnProperty.call(event[3], "twirl"));
+    assert.ok(twirlEvents.some((event) => event[3].twirl === false));
+    assert.equal(mini.getMiniMode(), true);
   });
 
   it("drag-snap still plays full mini-enter even when the cursor is over the pet", () => {

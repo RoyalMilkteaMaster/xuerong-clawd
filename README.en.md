@@ -2,9 +2,9 @@
 
 [繁體中文](README.md)
 
-Xuerong (雪絨) is a white ragdoll catgirl desktop companion theme for Clawd on Desk. This repository contains the Xuerong 2.1.3 theme, a safe theme-only installer for Clawd 0.12.0, and the complete corresponding source for the legacy Clawd 0.10.0 Windows runtime patch.
+Xuerong (雪絨) is a white ragdoll catgirl desktop companion theme for Clawd on Desk. This repository contains the Xuerong 2.2.0 theme, a safe theme-only installer for Clawd 0.12.0, and the complete corresponding source for the legacy Clawd 0.10.0 Windows runtime patch.
 
-![Xuerong animation contact sheet](themes/xuerong-hd/qa/all-frames-v21.png)
+![Xuerong 30 FPS animation contact sheet](themes/xuerong-hd/qa/smooth-v22/contact-sheet-01.png)
 
 ## Easiest install (recommended for Clawd 0.12.0)
 
@@ -22,8 +22,10 @@ If you prefer not to run a third-party EXE, download `Xuerong-HD-Clawd-Theme.zip
 
 ## Features
 
-- Full Xuerong animation set, including idle, work, typing, sleep, wake, grab, and reactions.
+- The full idle, work, typing, sleep, wake, grab, reaction, and mini animation set now runs at approximately 30 FPS.
+- Upright poses are checked against idle scale to prevent visible size popping between states.
 - Dedicated left/right edge-mode animation rather than a scaled full-body pose.
+- Context-menu mini entry now walks toward the nearest edge and adds one twirl on sufficiently long trips.
 - Free two-axis dragging from edge mode and smart edge-mode selection on release.
 - Up to 50% of the visible character may cross an outer screen edge.
 - Clawd-style Session HUD with current work location, state, and context progress.
@@ -83,7 +85,7 @@ The installer merges only the keys in [settings/xuerong-defaults.json](settings/
 - Upstream: [rullerzhou-afk/clawd-on-desk](https://github.com/rullerzhou-afk/clawd-on-desk)
 - Upstream base commit: `9ccafb84680d7068baa35e2d91c0800f81c7b475`
 - Upstream application version: `0.10.0`
-- Xuerong theme version: `2.1.3`
+- Xuerong theme version: `2.2.0`
 - Xuerong runtime package version: `0.11.0`
 
 The original upstream documentation is retained in [docs/UPSTREAM-README.md](docs/UPSTREAM-README.md).

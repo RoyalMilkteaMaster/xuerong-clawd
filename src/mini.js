@@ -49,12 +49,13 @@ function themeSupportsMini() {
 // throughout the mini lifecycle. Skipping applyPetWindowBounds here avoids the
 // per-frame materialize → IPC → renderer CSS re-apply round-trip that was
 // stalling the main thread during mini entry.
-function animateWindowX(targetX, durationMs, onDone) {
+function animateWindowX(targetX, durationMs, onDone, onProgress) {
   if (peekAnimTimer) { clearTimeout(peekAnimTimer); peekAnimTimer = null; }
   const bounds = ctx.win.getBounds();
   const startX = bounds.x;
   if (startX === targetX) {
     isAnimating = false;
+    if (onProgress) onProgress(1);
     if (onDone) onDone();
     return;
   }
@@ -72,6 +73,7 @@ function animateWindowX(targetX, durationMs, onDone) {
       return;
     }
     const t = Math.min(1, (Date.now() - startTime) / durationMs);
+    if (onProgress) onProgress(t);
     const eased = t * (2 - t);
     const x = Math.round(startX + (targetX - startX) * eased);
     if (!Number.isFinite(x) || !Number.isFinite(snapY)) {
@@ -270,6 +272,19 @@ function getMiniRestState() {
   return ctx.doNotDisturb ? "mini-sleep" : "mini-idle";
 }
 
+function getMenuEntryConfig() {
+  const raw = ctx.theme && ctx.theme.miniMode && ctx.theme.miniMode.menuEntry;
+  const numberOr = (value, fallback) => Number.isFinite(value) && value > 0 ? value : fallback;
+  return {
+    walkFile: raw && typeof raw.walkFile === "string" ? raw.walkFile : null,
+    walkSpeed: numberOr(raw && raw.walkSpeed, CRABWALK_SPEED),
+    minDuration: numberOr(raw && raw.minDuration, 450),
+    maxDuration: numberOr(raw && raw.maxDuration, 4200),
+    twirlThreshold: numberOr(raw && raw.twirlThreshold, Infinity),
+    twirlDuration: numberOr(raw && raw.twirlDuration, 820),
+  };
+}
+
 function finishMiniEntry(delayMs) {
   if (miniTransitionTimer) { clearTimeout(miniTransitionTimer); miniTransitionTimer = null; }
   const settleMs = Number.isFinite(delayMs) && delayMs >= 0 ? delayMs : MINI_ENTER_FALLBACK_MS;
@@ -322,7 +337,7 @@ function checkMiniModeSnap() {
   }
 }
 
-function enterMiniMode(wa, viaMenu, edge) {
+function enterMiniMode(wa, viaMenu, edge, options = {}) {
   if (!themeSupportsMini()) return;
   if (miniMode && !viaMenu) return;
   // preMini 存 virtual — 退出 mini 时能复原贴顶位置
@@ -362,6 +377,16 @@ function enterMiniMode(wa, viaMenu, edge) {
   const enterSvgState = ctx.doNotDisturb ? "mini-enter-sleep" : "mini-enter";
 
   if (viaMenu) {
+    if (options.alreadyAtEdge) {
+      miniSnap = { y: bounds.y, width: size.width, height: size.height };
+      ctx.win.setBounds({ x: currentMiniX, y: miniSnap.y, width: miniSnap.width, height: miniSnap.height });
+      ctx.syncHitWin();
+      syncSessionHudVisibility();
+      syncContainedClip();
+      ctx.applyState(enterSvgState);
+      finishMiniEntry(getMiniEnterDurationMs(enterSvgState));
+      return;
+    }
     const adjacent = containedBoundary != null;
     let jumpTarget;
     if (adjacent) {
@@ -517,24 +542,41 @@ function enterMiniViaMenu() {
   ctx.sendToRenderer("mini-mode-change", true, edge, { preEntry: true });
   ctx.sendToHitWin("hit-state-sync", { miniMode: true, miniEdge: edge });
 
-  ctx.applyState("mini-crabwalk");
+  const menuEntry = getMenuEntryConfig();
+  ctx.applyState("mini-crabwalk", menuEntry.walkFile || undefined);
 
   const adjacent = seamBoundary(wa, bounds.y + size.height / 2, edge) != null;
-  let edgeX;
-  if (edge === "right") {
-    edgeX = adjacent
-      ? wa.x + wa.width - size.width
-      : wa.x + wa.width - size.width + Math.round(size.width * 0.25);
-  } else {
-    edgeX = adjacent ? wa.x : wa.x - Math.round(size.width * 0.25);
-  }
+  const edgeX = adjacent
+    ? (edge === "right" ? wa.x + wa.width - size.width : wa.x)
+    : calcMiniX(wa, size);
   const walkDist = Math.abs(bounds.x - edgeX);
-  const walkDuration = walkDist / CRABWALK_SPEED;
-  animateWindowX(edgeX, walkDuration);
+  const walkDuration = Math.max(
+    menuEntry.minDuration,
+    Math.min(menuEntry.maxDuration, walkDist / menuEntry.walkSpeed),
+  );
+  const shouldTwirl = walkDist >= menuEntry.twirlThreshold;
+  const twirlDuration = Math.min(menuEntry.twirlDuration, walkDuration * 0.45);
+  const twirlStart = (walkDuration - twirlDuration) / 2;
+  const twirlEnd = twirlStart + twirlDuration;
+  let twirling = false;
 
-  miniTransitionTimer = setTimeout(() => {
-    enterMiniMode(wa, true, edge);
-  }, walkDuration + 50);
+  animateWindowX(edgeX, walkDuration, () => {
+    if (twirling) {
+      ctx.sendToRenderer("mini-mode-change", true, edge, { preEntry: true, twirl: false });
+    }
+    enterMiniMode(wa, true, edge, { alreadyAtEdge: true });
+  }, (progress) => {
+    if (!shouldTwirl) return;
+    const elapsed = progress * walkDuration;
+    const nextTwirling = elapsed >= twirlStart && elapsed < twirlEnd;
+    if (nextTwirling === twirling) return;
+    twirling = nextTwirling;
+    ctx.sendToRenderer("mini-mode-change", true, edge, {
+      preEntry: true,
+      twirl: twirling,
+      twirlDuration,
+    });
+  });
 }
 
 function refreshContainedBoundary(wa, yMid) {

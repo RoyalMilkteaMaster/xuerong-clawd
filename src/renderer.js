@@ -435,10 +435,18 @@ window.electronAPI.onDndChange((enabled) => { dndEnabled = enabled; });
 
 window.electronAPI.onMiniModeChange((enabled, edge, options) => {
   const preEntry = !!(options && options.preEntry);
+  const twirl = !!enabled && preEntry && !!(options && options.twirl);
   _miniPreEntryMode = !!enabled && preEntry;
   _inMiniMode = !!enabled && !preEntry;
   miniLeftFlip = !!enabled && edge === "left";
   container.classList.toggle("mini-left", miniLeftFlip);
+  if (clipLayer) {
+    const twirlDuration = Number(options && options.twirlDuration);
+    if (twirl && Number.isFinite(twirlDuration) && twirlDuration > 0) {
+      clipLayer.style.setProperty("--mini-entry-twirl-ms", `${Math.round(twirlDuration)}ms`);
+    }
+    clipLayer.classList.toggle("mini-entry-twirl", twirl);
+  }
   applyMiniFlip(clawdEl, currentState);
   if (miniLeftFlip) {
     applyGlyphFlipCompensation(clawdEl);
