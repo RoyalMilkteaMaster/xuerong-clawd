@@ -2,9 +2,23 @@
 
 [繁體中文](README.md)
 
-Xuerong (雪絨) is a white ragdoll catgirl desktop companion for the Windows build of Clawd on Desk 0.10.0. This repository contains the complete corresponding source, the Xuerong 2.1.3 theme, a tested Windows x64 runtime patch, safe preference defaults, and reversible installation scripts.
+Xuerong (雪絨) is a white ragdoll catgirl desktop companion theme for Clawd on Desk. This repository contains the Xuerong 2.1.3 theme, a safe theme-only installer for Clawd 0.12.0, and the complete corresponding source for the legacy Clawd 0.10.0 Windows runtime patch.
 
 ![Xuerong animation contact sheet](themes/xuerong-hd/qa/all-frames-v21.png)
+
+## Easiest install (recommended for Clawd 0.12.0)
+
+Download `Xuerong-HD-Theme-Installer.exe` from [GitHub Releases](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases) and double-click it. It installs only the Xuerong theme for the current Windows user, does not replace `app.asar`, and does not require administrator privileges.
+
+Restart Clawd, open `Settings → Theme`, then select “Xuerong HD” under user themes. Running the EXE again updates the theme. To remove it:
+
+```powershell
+.\Xuerong-HD-Theme-Installer.exe /uninstall
+```
+
+If you prefer not to run a third-party EXE, download `Xuerong-HD-Clawd-Theme.zip` and choose `Settings → Theme → Import Clawd theme package (.zip)`. This uses Clawd 0.12.0's built-in importer.
+
+> Windows may show SmartScreen because the installer does not have a commercial code-signing certificate. Use the ZIP path instead if you do not want to bypass a warning.
 
 ## Features
 
@@ -19,13 +33,27 @@ Xuerong (雪絨) is a white ragdoll catgirl desktop companion for the Windows bu
 
 ## Requirements
 
-- Windows 10 or Windows 11, x64.
-- Clawd on Desk 0.10.0 installed in the current Windows user account.
-- PowerShell 5.1 or later.
+- Theme-only installer: Windows 10/11 and Clawd on Desk 0.12.0. The ZIP also works on other platforms supported by Clawd.
+- Full patched runtime: Windows 10/11 x64, Clawd on Desk 0.10.0, and PowerShell 5.1 or later.
 
-The installer accepts the official 0.10.0 x64 `app.asar` and this repository's already-patched build. Other Clawd versions are rejected unless the user explicitly passes `-ForceUnsupported`.
+The old full-runtime installer accepts the official 0.10.0 x64 `app.asar` and this repository's already-patched build. Do not use `-ForceUnsupported` on 0.12.0: it replaces the 0.12.0 core with an older core instead of safely merging features.
+
+## Clawd 0.12.0 compatibility
+
+| Feature | Theme EXE/ZIP on stock 0.12.0 |
+|---|---|
+| Normal, sleep, grab, and reaction animations | Works |
+| Dedicated left/right edge visuals | Works |
+| Stock Session HUD and progress information | Works when the agent integration is healthy |
+| Free X/Y dragging directly from edge mode with smart release | Not included; this is a patched-runtime feature |
+| Custom Codex `request_user_input` HUD option cards | Not included; this is a patched monitor feature |
+| New 0.12.0 WSL, Remote Approval, Discord, and other features | Preserved because the theme installer does not patch the core |
+
+The theme passes Clawd 0.12.0's official `validate-theme.js` and ZIP importer. Keeping all 0.12.0 features plus every custom Xuerong interaction requires a separate port of the runtime changes; this theme-only installer intentionally does not do that.
 
 ## Install
+
+The instructions below are only for the full patched runtime on Clawd 0.10.0.
 
 Download and extract the release ZIP, open PowerShell in the extracted folder, then run:
 
@@ -68,6 +96,8 @@ The original upstream documentation is retained in [docs/UPSTREAM-README.md](doc
 npm ci
 npm test
 powershell -ExecutionPolicy Bypass -File .\scripts\validate-release.ps1
+powershell -ExecutionPolicy Bypass -File .\installer\build-theme-installer.ps1
+powershell -ExecutionPolicy Bypass -File .\installer\test-theme-installer.ps1
 ```
 
 The focused Xuerong regression suite is documented in [docs/VALIDATION.md](docs/VALIDATION.md).
