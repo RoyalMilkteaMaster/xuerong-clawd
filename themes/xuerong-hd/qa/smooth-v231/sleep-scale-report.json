@@ -1,0 +1,57 @@
+{
+  "ok": true,
+  "sleep_scale": 1.08,
+  "assets": [
+    {
+      "asset": "sleeping.webp",
+      "frames": 24,
+      "duration_ms": 13560,
+      "scale_range": [
+        1.08,
+        1.08
+      ],
+      "height_range": [
+        189,
+        192
+      ],
+      "bottom_range": [
+        484,
+        484
+      ]
+    },
+    {
+      "asset": "collapsing.webp",
+      "frames": 18,
+      "duration_ms": 1980,
+      "scale_range": [
+        1.0,
+        1.08
+      ],
+      "height_range": [
+        189,
+        352
+      ],
+      "bottom_range": [
+        482,
+        487
+      ]
+    },
+    {
+      "asset": "waking.webp",
+      "frames": 24,
+      "duration_ms": 2350,
+      "scale_range": [
+        1.0,
+        1.08
+      ],
+      "height_range": [
+        173,
+        351
+      ],
+      "bottom_range": [
+        484,
+        487
+      ]
+    }
+  ]
+}
