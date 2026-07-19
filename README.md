@@ -22,8 +22,9 @@
 - 可串接LINE、DISCORD、TELEGRAM通知使用者專案完成、或AGENTS正在等待指示。
 - 個性化回覆設定。
 - 一鍵安裝、一鍵卸除功能。
+  
 
-## 最簡單安裝（已有Clawd 0.12.0 推薦）
+# 最簡單安裝（已有Clawd 0.12.0 推薦）
 
 若您已經擁有Clawd on desk(https://github.com/rullerzhou-afk/clawd-on-desk)， 只想要擴增雪絨主題。
 那您只需從 [GitHub Releases](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases) 下載 `Xuerong-HD-Theme-Installer.exe`，雙擊一次即可。安裝器只會把雪絨放到目前 Windows 使用者的 Clawd 主題目錄，不會修改 `app.asar`，也不需要系統管理員權限。
@@ -50,9 +51,10 @@
 > Windows 可能因為安裝器沒有商業程式碼簽章而顯示 SmartScreen。可改用 ZIP 匯入，不需要略過任何安全警告。
 
 
-## 從clawd on desk 開始簡單安裝（未有Clawd 0.12.0 推薦）
+# 從clawd on desk 開始簡單安裝（未有Clawd 0.12.0 推薦）
 
-# 第一步：先安裝 Clawd on Desk
+
+## 第一步：先安裝 Clawd on Desk
 
 1. 前往 Clawd on Desk 官方 GitHub：
 
@@ -80,7 +82,7 @@
 
 ---
 
-# 第二步：安裝雪絨主題
+## 第二步：安裝雪絨主題
 
 你可以選擇「一鍵安裝器」或「ZIP 匯入」。
 
