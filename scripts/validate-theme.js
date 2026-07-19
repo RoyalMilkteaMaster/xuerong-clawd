@@ -209,6 +209,12 @@ function collectFiles() {
       if (Array.isArray(arr)) arr.forEach(f => files.add(f));
     }
   }
+  if (raw.miniMode && raw.miniMode.menuEntry) {
+    for (const key of ["walkFile", "twirlFile"]) {
+      const file = raw.miniMode.menuEntry[key];
+      if (typeof file === "string" && file) files.add(file);
+    }
+  }
   // Working tiers
   if (raw.workingTiers) {
     for (const tier of raw.workingTiers) {

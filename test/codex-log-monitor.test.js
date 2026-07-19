@@ -130,6 +130,31 @@ describe("CodexLogMonitor", () => {
     assert.strictEqual(events[0].extra.codexSource, "vscode");
   });
 
+  it("tails a large existing rollout without reading the whole file", () => {
+    const testFile = path.join(dateDir, TEST_FILENAME);
+    const sessionMeta = JSON.stringify({
+      type: "session_meta",
+      payload: { cwd: "/projects/large", originator: "Codex Desktop" },
+    }) + "\n";
+    const workingEvent = JSON.stringify({
+      type: "response_item",
+      payload: { type: "function_call" },
+    }) + "\n";
+    fs.writeFileSync(testFile, sessionMeta + "x".repeat(5 * 1024 * 1024) + "\n" + workingEvent);
+
+    const events = [];
+    monitor = new CodexLogMonitor(makeConfig(tmpDir), (sid, state, event, extra) => {
+      events.push({ sid, state, event, extra });
+    });
+    monitor._pollFile(testFile, path.basename(testFile));
+
+    const tracked = monitor._tracked.get(testFile);
+    assert.ok(tracked);
+    assert.strictEqual(tracked.offset, fs.statSync(testFile).size);
+    assert.ok(events.some((event) => event.state === "working"));
+    assert.strictEqual(events.at(-1).extra.cwd, "/projects/large");
+  });
+
   it("preserves Codex Desktop session metadata across tracker retirement and resume", () => {
     const testFile = path.join(dateDir, TEST_FILENAME);
     fs.writeFileSync(testFile, JSON.stringify({

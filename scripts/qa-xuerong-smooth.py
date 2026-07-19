@@ -18,6 +18,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", type=Path, default=Path("build/xuerong-smooth/qa"))
     parser.add_argument("--samples", type=int, default=6)
     parser.add_argument("--rows-per-page", type=int, default=6)
+    parser.add_argument("--background", choices=("checker", "dark", "magenta"), default="checker")
     return parser.parse_args()
 
 
@@ -40,6 +41,14 @@ def checkerboard(size: int, tile: int = 16) -> Image.Image:
     return image
 
 
+def qa_background(size: int, mode: str) -> Image.Image:
+    if mode == "dark":
+        return Image.new("RGBA", (size, size), (5, 7, 12, 255))
+    if mode == "magenta":
+        return Image.new("RGBA", (size, size), (210, 0, 120, 255))
+    return checkerboard(size)
+
+
 def sample_indices(frame_count: int, sample_count: int) -> list[int]:
     if sample_count <= 1 or frame_count <= 1:
         return [0]
@@ -50,6 +59,12 @@ def main() -> int:
     args = parse_args()
     manifest_path = args.theme_dir / "qa" / "asset-build-v21.json"
     assets = [entry["asset"] for entry in json.loads(manifest_path.read_text(encoding="utf-8"))["assets"]]
+    theme = json.loads((args.theme_dir / "theme.json").read_text(encoding="utf-8"))
+    menu_entry = theme.get("miniMode", {}).get("menuEntry", {})
+    for key in ("walkFile", "twirlFile"):
+        file = menu_entry.get(key)
+        if file and file not in assets:
+            assets.append(file)
     args.output_dir.mkdir(parents=True, exist_ok=True)
 
     cell_size = 256
@@ -75,7 +90,7 @@ def main() -> int:
             y = row_index * row_height
             draw.text((8, y + 9), f"{asset} | {len(frames)} frames", fill="black", font=font)
             for column, frame_index in enumerate(indices):
-                background = checkerboard(cell_size)
+                background = qa_background(cell_size, args.background)
                 frame = frames[frame_index]
                 background.alpha_composite(frame.resize((cell_size, cell_size), Image.Resampling.LANCZOS))
                 page.paste(background.convert("RGB"), (column * cell_size, y + label_height))

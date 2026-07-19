@@ -277,6 +277,7 @@ function getMenuEntryConfig() {
   const numberOr = (value, fallback) => Number.isFinite(value) && value > 0 ? value : fallback;
   return {
     walkFile: raw && typeof raw.walkFile === "string" ? raw.walkFile : null,
+    twirlFile: raw && typeof raw.twirlFile === "string" ? raw.twirlFile : null,
     walkSpeed: numberOr(raw && raw.walkSpeed, CRABWALK_SPEED),
     minDuration: numberOr(raw && raw.minDuration, 450),
     maxDuration: numberOr(raw && raw.maxDuration, 4200),
@@ -539,7 +540,7 @@ function enterMiniViaMenu() {
   // Pre-entry crabwalk still uses the normal-size render/layout path. Send the
   // edge for left-side flipping, but don't let the renderer enter mini layout
   // until enterMiniMode() starts the real mini handoff.
-  ctx.sendToRenderer("mini-mode-change", true, edge, { preEntry: true });
+  ctx.sendToRenderer("mini-mode-change", true, edge, { preEntry: true, normalWalk: true });
   ctx.sendToHitWin("hit-state-sync", { miniMode: true, miniEdge: edge });
 
   const menuEntry = getMenuEntryConfig();
@@ -561,9 +562,6 @@ function enterMiniViaMenu() {
   let twirling = false;
 
   animateWindowX(edgeX, walkDuration, () => {
-    if (twirling) {
-      ctx.sendToRenderer("mini-mode-change", true, edge, { preEntry: true, twirl: false });
-    }
     enterMiniMode(wa, true, edge, { alreadyAtEdge: true });
   }, (progress) => {
     if (!shouldTwirl) return;
@@ -571,11 +569,10 @@ function enterMiniViaMenu() {
     const nextTwirling = elapsed >= twirlStart && elapsed < twirlEnd;
     if (nextTwirling === twirling) return;
     twirling = nextTwirling;
-    ctx.sendToRenderer("mini-mode-change", true, edge, {
-      preEntry: true,
-      twirl: twirling,
-      twirlDuration,
-    });
+    ctx.applyState(
+      "mini-crabwalk",
+      twirling && menuEntry.twirlFile ? menuEntry.twirlFile : menuEntry.walkFile || undefined,
+    );
   });
 }
 

@@ -32,6 +32,9 @@ const APPROVAL_HEURISTIC_MS = 2000;
 const MAX_TRACKED_FILES = 50;
 const MAX_RETIRED_TRACKED_FILES = 100;
 const MAX_PARTIAL_BYTES = 65536;
+const MAX_INCREMENTAL_READ_BYTES = 4 * 1024 * 1024;
+const MAX_INITIAL_TAIL_BYTES = 4 * 1024 * 1024;
+const MAX_METADATA_PREFIX_BYTES = 256 * 1024;
 const RECENT_DAY_DIR_CACHE_MS = 60 * 60 * 1000; // 1 hour
 // A rollout file is considered "active" if written within this window. Used by
 // both the untracked-file pickup gate in _poll and the _getActiveDayDirs scan
@@ -331,7 +334,9 @@ class CodexLogMonitor {
         if (this._tracked.size >= MAX_TRACKED_FILES) return;
       }
       const retired = this._retiredTracked.get(filePath) || null;
-      const resumeOffset = retired && stat.size >= retired.offset ? retired.offset : 0;
+      const resumeOffset = retired && stat.size >= retired.offset
+        ? retired.offset
+        : Math.max(0, stat.size - MAX_INITIAL_TAIL_BYTES);
       if (retired) this._retiredTracked.delete(filePath);
       tracked = {
         offset: resumeOffset,
@@ -354,6 +359,7 @@ class CodexLogMonitor {
         assistantLastOutput: retired ? retired.assistantLastOutput || null : null,
         assistantLastOutputTruncated: retired ? retired.assistantLastOutputTruncated === true : false,
         contextUsage: retired ? retired.contextUsage || null : null,
+        skipPartialStart: !retired && resumeOffset > 0,
         // Backfill mode: only a file whose last write predates monitor
         // start (by more than BACKFILL_GRACE_MS) is treated as stale
         // history — we replay it silently to advance offset + pick up
@@ -365,6 +371,9 @@ class CodexLogMonitor {
           stat.size > 0 &&
           stat.mtimeMs < this._startedAtMs - BACKFILL_GRACE_MS,
       };
+      if (!retired && resumeOffset > 0) {
+        this._primeSessionMetaFromPrefix(filePath, tracked, stat.size);
+      }
       this._tracked.set(filePath, tracked);
     }
 
@@ -375,18 +384,23 @@ class CodexLogMonitor {
     let buf;
     try {
       const fd = fs.openSync(filePath, "r");
-      const readLen = stat.size - tracked.offset;
+      const readLen = Math.min(stat.size - tracked.offset, MAX_INCREMENTAL_READ_BYTES);
       buf = Buffer.alloc(readLen);
-      fs.readSync(fd, buf, 0, readLen, tracked.offset);
+      const bytesRead = fs.readSync(fd, buf, 0, readLen, tracked.offset);
       fs.closeSync(fd);
+      if (bytesRead !== readLen) buf = buf.subarray(0, bytesRead);
     } catch {
       return;
     }
-    tracked.offset = stat.size;
+    tracked.offset += buf.length;
 
     // Split into lines, handle partial last line
     const text = tracked.partial + buf.toString("utf8");
     const lines = text.split("\n");
+    if (tracked.skipPartialStart) {
+      lines.shift();
+      tracked.skipPartialStart = false;
+    }
     // Last element might be incomplete — save for next poll.
     // Cap at 64KB: lines larger than this (e.g. huge tool output) are discarded —
     // both halves will fail JSON.parse so one state update is silently lost, which
@@ -401,9 +415,35 @@ class CodexLogMonitor {
 
     // First pass drained the historical bytes we picked up on attach;
     // subsequent writes to this file are live and must emit normally.
-    if (tracked.backfilling) {
+    if (tracked.backfilling && tracked.offset >= stat.size) {
       this._emitBackfillSnapshot(tracked);
       tracked.backfilling = false;
+    }
+  }
+
+  _primeSessionMetaFromPrefix(filePath, tracked, fileSize) {
+    let fd;
+    try {
+      fd = fs.openSync(filePath, "r");
+      const readLen = Math.min(fileSize, MAX_METADATA_PREFIX_BYTES);
+      const buf = Buffer.alloc(readLen);
+      const bytesRead = fs.readSync(fd, buf, 0, readLen, 0);
+      const lines = buf.subarray(0, bytesRead).toString("utf8").split("\n");
+      for (const line of lines) {
+        if (!line.includes('"session_meta"')) continue;
+        let obj;
+        try { obj = JSON.parse(line); } catch { continue; }
+        if (obj.type === "session_meta") {
+          this._applySessionMeta(obj.payload, tracked);
+          return;
+        }
+      }
+    } catch {
+      // Metadata is optional; live tail events still keep the pet responsive.
+    } finally {
+      if (fd !== undefined) {
+        try { fs.closeSync(fd); } catch {}
+      }
     }
   }
 

@@ -357,6 +357,7 @@ let _transitions = {};  // per-file fade config: { "file.apng": { in: 400, out: 
 let _miniFlipAssets = false; // theme's mini assets drawn in reverse direction
 let _inMiniMode = false;
 let _miniPreEntryMode = false;
+let _miniPreEntryUsesNormalWalk = false;
 let _viewportOffsetY = 0;
 
 function setViewportOffset(offsetY) {
@@ -370,7 +371,10 @@ function setViewportOffset(offsetY) {
 }
 
 function shouldApplyMiniAssetFlip(state) {
-  return _miniFlipAssets && (_inMiniMode || (_miniPreEntryMode && state === "mini-crabwalk"));
+  const preEntryMiniAsset = _miniPreEntryMode
+    && state === "mini-crabwalk"
+    && !_miniPreEntryUsesNormalWalk;
+  return _miniFlipAssets && (_inMiniMode || preEntryMiniAsset);
 }
 
 function applyMiniFlip(el, state = currentState) {
@@ -435,18 +439,11 @@ window.electronAPI.onDndChange((enabled) => { dndEnabled = enabled; });
 
 window.electronAPI.onMiniModeChange((enabled, edge, options) => {
   const preEntry = !!(options && options.preEntry);
-  const twirl = !!enabled && preEntry && !!(options && options.twirl);
   _miniPreEntryMode = !!enabled && preEntry;
+  _miniPreEntryUsesNormalWalk = _miniPreEntryMode && !!(options && options.normalWalk);
   _inMiniMode = !!enabled && !preEntry;
   miniLeftFlip = !!enabled && edge === "left";
   container.classList.toggle("mini-left", miniLeftFlip);
-  if (clipLayer) {
-    const twirlDuration = Number(options && options.twirlDuration);
-    if (twirl && Number.isFinite(twirlDuration) && twirlDuration > 0) {
-      clipLayer.style.setProperty("--mini-entry-twirl-ms", `${Math.round(twirlDuration)}ms`);
-    }
-    clipLayer.classList.toggle("mini-entry-twirl", twirl);
-  }
   applyMiniFlip(clawdEl, currentState);
   if (miniLeftFlip) {
     applyGlyphFlipCompensation(clawdEl);

@@ -1,0 +1,431 @@
+{
+  "ok": true,
+  "errors": [],
+  "assets": [
+    {
+      "asset": "idle.webp",
+      "frames": 21,
+      "duration_ms": 875,
+      "expected_ms": 875,
+      "loop": 0,
+      "height_range": [
+        347,
+        350
+      ],
+      "bottom_range": [
+        487,
+        487
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 990853
+    },
+    {
+      "asset": "running-right.webp",
+      "frames": 22,
+      "duration_ms": 765,
+      "expected_ms": 765,
+      "loop": 0,
+      "height_range": [
+        308,
+        326
+      ],
+      "bottom_range": [
+        473,
+        485
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 781776
+    },
+    {
+      "asset": "running-left.webp",
+      "frames": 22,
+      "duration_ms": 765,
+      "expected_ms": 765,
+      "loop": 0,
+      "height_range": [
+        311,
+        324
+      ],
+      "bottom_range": [
+        479,
+        484
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 947655
+    },
+    {
+      "asset": "waving.webp",
+      "frames": 8,
+      "duration_ms": 3000,
+      "expected_ms": 3000,
+      "loop": 1,
+      "height_range": [
+        349,
+        350
+      ],
+      "bottom_range": [
+        487,
+        487
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 89283
+    },
+    {
+      "asset": "jumping.webp",
+      "frames": 18,
+      "duration_ms": 630,
+      "expected_ms": 630,
+      "loop": 0,
+      "height_range": [
+        249,
+        340
+      ],
+      "bottom_range": [
+        409,
+        487
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 443857
+    },
+    {
+      "asset": "failed.webp",
+      "frames": 27,
+      "duration_ms": 1260,
+      "expected_ms": 1260,
+      "loop": 0,
+      "height_range": [
+        211,
+        263
+      ],
+      "bottom_range": [
+        486,
+        486
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 766280
+    },
+    {
+      "asset": "waiting.webp",
+      "frames": 20,
+      "duration_ms": 945,
+      "expected_ms": 945,
+      "loop": 0,
+      "height_range": [
+        347,
+        350
+      ],
+      "bottom_range": [
+        487,
+        487
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 767180
+    },
+    {
+      "asset": "review.webp",
+      "frames": 20,
+      "duration_ms": 945,
+      "expected_ms": 945,
+      "loop": 0,
+      "height_range": [
+        321,
+        350
+      ],
+      "bottom_range": [
+        487,
+        487
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 742236
+    },
+    {
+      "asset": "yawning.webp",
+      "frames": 22,
+      "duration_ms": 1760,
+      "expected_ms": 1760,
+      "loop": 1,
+      "height_range": [
+        330,
+        352
+      ],
+      "bottom_range": [
+        488,
+        488
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 841737
+    },
+    {
+      "asset": "dozing.webp",
+      "frames": 15,
+      "duration_ms": 1900,
+      "expected_ms": 1900,
+      "loop": 0,
+      "height_range": [
+        321,
+        337
+      ],
+      "bottom_range": [
+        488,
+        488
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 270483
+    },
+    {
+      "asset": "typing.webp",
+      "frames": 24,
+      "duration_ms": 880,
+      "expected_ms": 880,
+      "loop": 0,
+      "height_range": [
+        344,
+        345
+      ],
+      "bottom_range": [
+        484,
+        484
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 1220068
+    },
+    {
+      "asset": "grabbed.webp",
+      "frames": 23,
+      "duration_ms": 1000,
+      "expected_ms": 1000,
+      "loop": 0,
+      "height_range": [
+        341,
+        357
+      ],
+      "bottom_range": [
+        363,
+        379
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 825227
+    },
+    {
+      "asset": "sleeping.webp",
+      "frames": 24,
+      "duration_ms": 13560,
+      "expected_ms": 13560,
+      "loop": 0,
+      "height_range": [
+        174,
+        176
+      ],
+      "bottom_range": [
+        484,
+        484
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 333312
+    },
+    {
+      "asset": "collapsing.webp",
+      "frames": 18,
+      "duration_ms": 1980,
+      "expected_ms": 1980,
+      "loop": 0,
+      "height_range": [
+        174,
+        349
+      ],
+      "bottom_range": [
+        482,
+        487
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 342385
+    },
+    {
+      "asset": "waking.webp",
+      "frames": 24,
+      "duration_ms": 2350,
+      "expected_ms": 2350,
+      "loop": 0,
+      "height_range": [
+        158,
+        349
+      ],
+      "bottom_range": [
+        484,
+        487
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 703399
+    },
+    {
+      "asset": "mini-idle.webp",
+      "frames": 24,
+      "duration_ms": 1920,
+      "expected_ms": 1920,
+      "loop": 0,
+      "height_range": [
+        276,
+        279
+      ],
+      "bottom_range": [
+        478,
+        479
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 469028
+    },
+    {
+      "asset": "mini-enter.webp",
+      "frames": 22,
+      "duration_ms": 1600,
+      "expected_ms": 1600,
+      "loop": 1,
+      "height_range": [
+        173,
+        290
+      ],
+      "bottom_range": [
+        478,
+        478
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 384354
+    },
+    {
+      "asset": "mini-peek.webp",
+      "frames": 24,
+      "duration_ms": 1840,
+      "expected_ms": 1840,
+      "loop": 0,
+      "height_range": [
+        272,
+        274
+      ],
+      "bottom_range": [
+        478,
+        479
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 361858
+    },
+    {
+      "asset": "mini-alert.webp",
+      "frames": 24,
+      "duration_ms": 1620,
+      "expected_ms": 1620,
+      "loop": 0,
+      "height_range": [
+        265,
+        271
+      ],
+      "bottom_range": [
+        478,
+        478
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 440356
+    },
+    {
+      "asset": "mini-happy.webp",
+      "frames": 22,
+      "duration_ms": 1530,
+      "expected_ms": 1530,
+      "loop": 0,
+      "height_range": [
+        265,
+        269
+      ],
+      "bottom_range": [
+        478,
+        478
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 390861
+    },
+    {
+      "asset": "mini-crabwalk.webp",
+      "frames": 24,
+      "duration_ms": 1260,
+      "expected_ms": 1260,
+      "loop": 0,
+      "height_range": [
+        264,
+        266
+      ],
+      "bottom_range": [
+        478,
+        479
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 415305
+    },
+    {
+      "asset": "mini-working-v213.webp",
+      "frames": 24,
+      "duration_ms": 1080,
+      "expected_ms": 1080,
+      "loop": 0,
+      "height_range": [
+        281,
+        285
+      ],
+      "bottom_range": [
+        481,
+        481
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 320046
+    },
+    {
+      "asset": "mini-sleep.webp",
+      "frames": 24,
+      "duration_ms": 13560,
+      "expected_ms": 13560,
+      "loop": 0,
+      "height_range": [
+        227,
+        242
+      ],
+      "bottom_range": [
+        478,
+        478
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 324894
+    },
+    {
+      "asset": "mini-enter-sleep.webp",
+      "frames": 20,
+      "duration_ms": 1900,
+      "expected_ms": 1900,
+      "loop": 1,
+      "height_range": [
+        227,
+        267
+      ],
+      "bottom_range": [
+        478,
+        478
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 272065
+    },
+    {
+      "asset": "menu-twirl.webp",
+      "frames": 9,
+      "duration_ms": 1100,
+      "expected_ms": 1100,
+      "loop": 0,
+      "height_range": [
+        338,
+        355
+      ],
+      "bottom_range": [
+        487,
+        487
+      ],
+      "transparent_corners": true,
+      "hidden_rgb_pixels": 71982
+    }
+  ]
+}

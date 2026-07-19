@@ -40,7 +40,7 @@ $package = [IO.File]::ReadAllText((Join-Path $repositoryRoot "package.json"), $u
 Assert-Equal $package.version "0.10.0" "Unexpected upstream package version"
 
 $theme = [IO.File]::ReadAllText((Join-Path $themeRoot "theme.json"), $utf8) | ConvertFrom-Json
-Assert-Equal $theme.version "2.2.0" "Unexpected Xuerong theme version"
+Assert-Equal $theme.version "2.3.0" "Unexpected Xuerong theme version"
 $expectedThemeName = ([char]0x96EA) + ([char]0x7D68) + " HD"
 Assert-Equal $theme.name $expectedThemeName "Unexpected Xuerong theme name"
 
@@ -81,7 +81,7 @@ foreach ($line in Get-Content -LiteralPath $manifestPath) {
 }
 
 $releaseAsarHash = (Get-FileHash -LiteralPath (Join-Path $releaseRoot "app.asar") -Algorithm SHA256).Hash
-Assert-Equal $releaseAsarHash "90529611FF1E19DCF2D102B70E0D9038877C1DA223484E2DFD1C760803B46A36" "Unexpected release app.asar"
+Assert-Equal $releaseAsarHash "40D04B5249C571CD4F5E27E980B1FE1CB377910BDAC19B620F3504E82D78C52D" "Unexpected release app.asar"
 
 function Read-NormalizedText([string]$Path) {
   return [IO.File]::ReadAllText($Path, $utf8).Replace("`r`n", "`n").Replace("`r", "`n")
