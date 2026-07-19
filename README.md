@@ -43,7 +43,130 @@
   </a>
 </p>
 
+## 第一步：先安裝 Clawd on Desk
 
+1. 前往 Clawd on Desk 官方 GitHub：
+
+   👉 [開啟 Clawd on Desk 官方 GitHub](https://github.com/rullerzhou-afk/clawd-on-desk)
+
+2. 進入官方的 Releases 頁面：
+
+   👉 [下載 Clawd on Desk](https://github.com/rullerzhou-afk/clawd-on-desk/releases)
+
+3. 下載適合你電腦的安裝檔。
+
+   一般的 Windows 電腦通常使用：
+
+   ```text
+   Clawd-on-Desk-Setup-版本號-x64.exe
+   ```
+
+   Windows ARM 電腦才需要下載 ARM64 版本。
+
+4. 雙擊安裝檔，完成 Clawd on Desk 安裝。
+
+5. 安裝完成後，請先開啟一次 Clawd on Desk，確認它可以正常執行。
+
+6. 確認 Clawd 可以正常執行後，再回到這個雪絨頁面繼續下一步。
+
+---
+
+## 第二步：安裝雪絨主題
+
+你可以選擇「一鍵安裝器」或「ZIP 匯入」。
+
+### 選擇 A：使用雪絨一鍵安裝器
+
+1. 下載雪絨安裝器：
+
+   👉 [下載 Xuerong-HD-Theme-Installer.exe](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.1.3/Xuerong-HD-Theme-Installer.exe)
+
+2. 下載完成後，雙擊：
+
+   ```text
+   Xuerong-HD-Theme-Installer.exe
+   ```
+
+3. 看到「雪絨 HD 已加入 Clawd 主題清單」後，關閉並重新開啟 Clawd。
+
+4. 在 Clawd 裡依序選擇：
+
+   ```text
+   設定 → 主題 → 使用者主題 → 雪絨 HD
+   ```
+
+5. 完成，雪絨就會出現在桌面上。
+
+> [!NOTE]
+> 這個安裝器只會把雪絨主題放到目前 Windows 使用者的 Clawd 主題資料夾。
+>
+> 它不會修改 `app.asar`，也不需要系統管理員權限。
+
+### Windows 出現 SmartScreen 怎麼辦？
+
+因為這個安裝器沒有購買商業程式碼簽章，Windows 可能會顯示 SmartScreen 提醒。
+
+不想略過 SmartScreen 的話，請改用下面的 ZIP 匯入方式。
+
+---
+
+### 選擇 B：使用 Clawd 自己的 ZIP 匯入功能
+
+這個方式不需要執行任何第三方 EXE。
+
+1. 下載雪絨主題 ZIP：
+
+   👉 [下載 Xuerong-HD-Clawd-Theme.zip](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.1.3/Xuerong-HD-Clawd-Theme.zip)
+
+2. 不要解壓縮這個 ZIP。
+
+3. 開啟 Clawd on Desk。
+
+4. 依序選擇：
+
+   ```text
+   設定 → 主題 → 匯入 Clawd 主題套件（.zip）
+   ```
+
+5. 選擇剛才下載的：
+
+   ```text
+   Xuerong-HD-Clawd-Theme.zip
+   ```
+
+6. 匯入完成後，選擇：
+
+   ```text
+   雪絨 HD
+   ```
+
+7. 如果角色沒有立即更新，請關閉並重新開啟 Clawd。
+
+---
+
+## 更新雪絨主題
+
+如果你是使用 EXE 安裝，只要下載新版安裝器並重新執行一次即可。
+
+安裝器會先備份原本的雪絨主題，再安裝新版。
+
+如果你是使用 ZIP 匯入，而且 Clawd 顯示同名主題已存在，請先移除舊的「雪絨 HD」，再匯入新版 ZIP。
+
+---
+
+## 移除一般主題版
+
+在雪絨安裝器所在的資料夾開啟 PowerShell，執行：
+
+```powershell
+.\Xuerong-HD-Theme-Installer.exe /uninstall
+```
+
+也可以直接關閉 Clawd，然後刪除這個資料夾：
+
+```text
+%APPDATA%\clawd-on-desk\themes\xuerong-hd
+```
 
 ## 系統需求
 
@@ -60,29 +183,6 @@ ZIP 也可用於其他 Clawd 支援的平台。
 | 從邊緣直接自由拖曳 X/Y、放開智慧判斷 | 不可用；這是雪絨修改版核心功能 |
 | Codex `request_user_input` 的自訂 HUD 選項卡 | 不可用；這是雪絨修改版監視器功能 |
 | 0.12.0 的新版 WSL、Remote Approval、Discord 等功能 | 保留，因為主題安裝器不修改核心 |
-
-## 完整修改版安裝（僅限 Clawd 0.10.0）
-
-以下是只提供給需要完整雪絨修改版功能、且仍使用 Clawd 0.10.0 的舊安裝方式。下載並解壓縮 GitHub Release ZIP，在資料夾內開啟 PowerShell：
-
-```powershell
-Set-ExecutionPolicy -Scope Process Bypass
-.\installer\install.ps1
-```
-
-只檢查、不修改電腦：
-
-```powershell
-.\installer\install.ps1 -ValidateOnly
-```
-
-復原到最近一次安裝前狀態：
-
-```powershell
-.\installer\restore.ps1
-```
-
-備份會放在 `%APPDATA%\clawd-on-desk\xuerong-backups`。
 
 ## 安全設定
 
