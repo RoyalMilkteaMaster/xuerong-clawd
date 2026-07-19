@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "name": "雪絨 HD",
   "author": "leslie + Codex",
-  "version": "2.3.1",
-  "description": "Clawd 專用雪絨：全動作 30 FPS、高畫質、專用 Q 版邊緣互動、穩定睡醒與無縫循環。",
+  "version": "2.4.0",
+  "description": "Clawd 專用雪絨：保留 2.1.3 原動作與節奏，升級 24/30 FPS、乾淨透明邊緣與自然揮手。",
   "viewBox": {
     "x": 0,
     "y": 0,
@@ -110,7 +110,7 @@
     },
     {
       "file": "waving.webp",
-      "duration": 3000
+      "duration": 2500
     }
   ],
   "displayHintMap": {
@@ -197,7 +197,7 @@
     },
     "clickLeft": {
       "file": "waving.webp",
-      "duration": 3000
+      "duration": 2500
     },
     "clickRight": {
       "file": "waiting.webp",
@@ -218,15 +218,6 @@
     "supported": true,
     "offsetRatio": 0.486,
     "flipAssets": true,
-    "menuEntry": {
-      "walkFile": "running-right.webp",
-      "twirlFile": "menu-twirl.webp",
-      "walkSpeed": 0.28,
-      "minDuration": 520,
-      "maxDuration": 3600,
-      "twirlThreshold": 640,
-      "twirlDuration": 1100
-    },
     "states": {
       "mini-idle": [
         "mini-idle.webp"
