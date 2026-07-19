@@ -40,7 +40,7 @@
 
 <p align="center">
   <a href="https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.1.3/Xuerong-HD-Theme-Installer.exe">
-    <img src="assets/readme/windows-download-button.svg" width="760" alt="Windows 一鍵下載雪絨安裝器">
+    <img src="assets/readme/windows-download-button.svg" width="180" alt="Windows 一鍵下載雪絨安裝器">
   </a>
 </p>
 
