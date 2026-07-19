@@ -50,9 +50,9 @@
 > Windows 可能因為安裝器沒有商業程式碼簽章而顯示 SmartScreen。可改用 ZIP 匯入，不需要略過任何安全警告。
 
 
-## 從clawd on desk 開始剪單安裝（未有Clawd 0.12.0 推薦）
+## 從clawd on desk 開始簡單安裝（未有Clawd 0.12.0 推薦）
 
-## 第一步：先安裝 Clawd on Desk
+# 第一步：先安裝 Clawd on Desk
 
 1. 前往 Clawd on Desk 官方 GitHub：
 
@@ -80,7 +80,7 @@
 
 ---
 
-## 第二步：安裝雪絨主題
+# 第二步：安裝雪絨主題
 
 你可以選擇「一鍵安裝器」或「ZIP 匯入」。
 
