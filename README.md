@@ -40,13 +40,15 @@
 若您不想執行第三方 EXE ，可改下載 `Xuerong-HD-Clawd-Theme.zip`，在 Clawd `設定 → 主題 → 匯入 Clawd 主題套件（.zip）` 中選取它。
 這條路徑使用 Clawd 0.12.0 自己的匯入器。
 
-> Windows 可能因為安裝器沒有商業程式碼簽章而顯示 SmartScreen。可改用 ZIP 匯入，不需要略過任何安全警告。
-
 <p align="left">
   <a href="https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.1.3/Xuerong-HD-Theme-Installer.exe">
     <img src="assets/readme/windows-download-button.svg" width="180" alt="Windows 一鍵下載雪絨安裝器">
   </a>
 </p>
+
+
+> Windows 可能因為安裝器沒有商業程式碼簽章而顯示 SmartScreen。可改用 ZIP 匯入，不需要略過任何安全警告。
+
 
 ## 從clawd on desk 開始剪單安裝（未有Clawd 0.12.0 推薦）
 
