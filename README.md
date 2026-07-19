@@ -23,17 +23,23 @@
 - 個性化回覆設定。
 - 一鍵安裝、一鍵卸除功能。
 
-## 最簡單安裝（Clawd 0.12.0 推薦）
+## 最簡單安裝（已有Clawd 0.12.0 推薦）
 
-從 [GitHub Releases](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases) 下載 `Xuerong-HD-Theme-Installer.exe`，雙擊一次即可。安裝器只會把雪絨放到目前 Windows 使用者的 Clawd 主題目錄，不會修改 `app.asar`，也不需要系統管理員權限。
+若您已經擁有clawd on desk(https://github.com/rullerzhou-afk/clawd-on-desk)， 只想要擴增雪絨主題。
+那您只需從 [GitHub Releases](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases) 下載 `Xuerong-HD-Theme-Installer.exe`，雙擊一次即可。安裝器只會把雪絨放到目前 Windows 使用者的 Clawd 主題目錄即可。
+該執行檔不會修改 `app.asar`，也不需要系統管理員權限。
 
-安裝後重新開啟 Clawd，進入 `設定 → 主題`，在下方的使用者主題選擇「雪絨 HD」。/n重複執行同一個 EXE 可以更新主題；解除安裝可執行：
+執行成功後，重新開啟 Clawd，進入 `設定 → 主題`，在下方的使用者主題選擇「雪絨 HD」即可更換clawd on desk主題。
+若後續版本有所更新，只需重新至(https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases)下載exe，並重新執行一次該 EXE 即可以更新主題。
+
+解除安裝可執行：
 
 ```powershell
 .\Xuerong-HD-Theme-Installer.exe /uninstall
 ```
 
-不想執行第三方 EXE 時，可改下載 `Xuerong-HD-Clawd-Theme.zip`，在 Clawd `設定 → 主題 → 匯入 Clawd 主題套件（.zip）` 中選取它。這條路徑使用 Clawd 0.12.0 自己的匯入器。
+若您不想執行第三方 EXE 時，可改下載 `Xuerong-HD-Clawd-Theme.zip`，在 Clawd `設定 → 主題 → 匯入 Clawd 主題套件（.zip）` 中選取它。
+這條路徑使用 Clawd 0.12.0 自己的匯入器。
 
 > Windows 可能因為安裝器沒有商業程式碼簽章而顯示 SmartScreen。可改用 ZIP 匯入，不需要略過任何安全警告。
 
@@ -42,6 +48,8 @@
     <img src="assets/readme/windows-download-button.svg" width="180" alt="Windows 一鍵下載雪絨安裝器">
   </a>
 </p>
+
+## 從clawd on desk 開始剪單安裝（未有Clawd 0.12.0 推薦）
 
 ## 第一步：先安裝 Clawd on Desk
 
