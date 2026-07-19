@@ -40,7 +40,7 @@ $package = [IO.File]::ReadAllText((Join-Path $repositoryRoot "package.json"), $u
 Assert-Equal $package.version "0.10.0" "Unexpected upstream package version"
 
 $theme = [IO.File]::ReadAllText((Join-Path $themeRoot "theme.json"), $utf8) | ConvertFrom-Json
-Assert-Equal $theme.version "2.4.0" "Unexpected Xuerong theme version"
+Assert-Equal $theme.version "2.4.1" "Unexpected Xuerong theme version"
 $expectedThemeName = ([char]0x96EA) + ([char]0x7D68) + " HD"
 Assert-Equal $theme.name $expectedThemeName "Unexpected Xuerong theme name"
 
