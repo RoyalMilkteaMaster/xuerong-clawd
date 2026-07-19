@@ -1,31 +1,5 @@
 # 雪絨 — Clawd on Desk 貓娘桌面寵物
 
-<p align="center">
-  <a href="https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.1.3/Xuerong-HD-Theme-Installer.exe">
-    <img src="https://img.shields.io/badge/Windows-%E4%B8%80%E9%8D%B5%E4%B8%8B%E8%BC%89%E9%9B%AA%E7%B5%A8-0078D4?style=for-the-badge&amp;logo=windows11&amp;logoColor=white" alt="Windows 一鍵下載雪絨安裝器">
-  </a>
-</p>
-
-[English](README.en.md)
-
-雪絨是一隻白色母布偶貓貓娘桌面寵物。這個倉庫包含完整對應原始碼、雪絨 2.1.3 主題、已測試的 Windows x64 執行套件、安全設定範本，以及可以復原的一鍵安裝腳本。
-
-## LINE 頭像
-
-### 1．溫柔雪藍
-
-![溫柔雪藍](01-gentle-snow-blue.png)
-
-### 2．活潑眨眼
-
-![活潑眨眼](02-playful-wink.png)
-
-### 3．害羞愛心
-
-![害羞愛心](03-bashful-heart.png)
-
-![雪絨動畫總覽](themes/xuerong-hd/qa/all-frames-v21.png)
-
 ## 最簡單安裝（Clawd 0.12.0 推薦）
 
 從 [GitHub Releases](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases) 下載 `Xuerong-HD-Theme-Installer.exe`，雙擊一次即可。安裝器只會把雪絨放到目前 Windows 使用者的 Clawd 主題目錄，不會修改 `app.asar`，也不需要系統管理員權限。
@@ -39,6 +13,26 @@
 不想執行第三方 EXE 時，可改下載 `Xuerong-HD-Clawd-Theme.zip`，在 Clawd `設定 → 主題 → 匯入 Clawd 主題套件（.zip）` 中選取它。這條路徑使用 Clawd 0.12.0 自己的匯入器。
 
 > Windows 可能因為安裝器沒有商業程式碼簽章而顯示 SmartScreen。可改用 ZIP 匯入，不需要略過任何安全警告。
+
+<p align="center">
+  <a href="https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.1.3/Xuerong-HD-Theme-Installer.exe">
+    <img src="https://img.shields.io/badge/Windows-%E4%B8%80%E9%8D%B5%E4%B8%8B%E8%BC%89%E9%9B%AA%E7%B5%A8-0078D4?style=for-the-badge&amp;logo=windows11&amp;logoColor=white" alt="Windows 一鍵下載雪絨安裝器">
+  </a>
+</p>
+
+
+
+[English](README.en.md)
+
+雪絨是一隻白色母布偶貓貓娘桌面寵物。這個倉庫包含完整對應原始碼、雪絨 2.1.3 主題、已測試的 Windows x64 執行套件、安全設定範本，以及可以復原的一鍵安裝腳本。
+
+![溫柔雪藍](01-gentle-snow-blue.png)
+
+![活潑眨眼](02-playful-wink.png)
+
+![害羞愛心](03-bashful-heart.png)
+
+![雪絨動畫總覽](themes/xuerong-hd/qa/all-frames-v21.png)
 
 ## 功能
 
