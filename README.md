@@ -38,7 +38,7 @@
 
 > Windows 可能因為安裝器沒有商業程式碼簽章而顯示 SmartScreen。可改用 ZIP 匯入，不需要略過任何安全警告。
 
-<p align="center">
+<p align="left">
   <a href="https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.1.3/Xuerong-HD-Theme-Installer.exe">
     <img src="assets/readme/windows-download-button.svg" width="180" alt="Windows 一鍵下載雪絨安裝器">
   </a>
