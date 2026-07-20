@@ -1,9 +1,8 @@
 # 雪絨 — Clawd on Desk 貓娘桌面寵物
 
-[English](README.en.md)
+[繁體中文](README.md) · [简体中文](README.zh-CN.md) · [English](README.en.md) · [日本語](README.ja-JP.md) · [한국어](README.ko-KR.md)
 
-雪絨是一隻白色母布偶貓貓娘桌面寵物。
-這個倉庫包含完整對應原始碼、雪絨 2.4.1 主題、已測試的 Windows x64 執行套件、安全設定範本，以及可以復原的一鍵安裝腳本。
+雪絨是一隻白色布偶貓貓娘桌面寵物。本倉庫提供雪絨 HD 主題、Windows 一鍵主題安裝器、可由 Clawd 匯入的 ZIP，以及舊版完整修改核心的對應原始碼。
 
 ![溫柔雪藍](01-gentle-snow-blue.png)
 
@@ -13,179 +12,130 @@
 
 ![雪絨動畫總覽](themes/xuerong-hd/qa/all-frames-v21.png)
 
+## 目前版本
+
+| 項目 | 版本 | 用途 |
+|---|---:|---|
+| 個人化 Clawd on Desk | `0.12.1-notifications.10` | Windows x64；加入 Discord／LINE 通知與通知回應設定 |
+| 官方 Clawd on Desk | `0.12.0` | 官方穩定版 |
+| 雪絨 HD 主題 | `2.4.1` | 建議安裝的目前主題版本 |
+| 舊版雪絨程式套件 | `0.11.0` | 以 Clawd `0.10.0` 為基礎的舊版完整修改核心，僅供原始碼與相容性參考 |
+
 ## 功能
 
-- 一般待機、agent工作中、待機、起床、被抓...等互動動畫。
-- 邊緣模式專用Q版半身動畫。
-- 自由拖曳系統，放開時依最終位置智慧判斷是否進入邊緣模式。
-- Session HUD 顯示工作位置、執行狀態與 Codex context 進度。
-- 可串接LINE、DISCORD、TELEGRAM通知使用者專案完成、或AGENTS正在等待指示。
-- 個性化回覆設定。
-- 一鍵安裝、一鍵卸除功能。
-  
+- 一般待機、工作中、睡眠、起床、被抓等互動動畫。
+- 邊緣模式專用 Q 版半身動畫。
+- 支援 Clawd 的 Session HUD、工作狀態與 Codex context 進度。
+- 個人化 Clawd 版本可傳送 Discord／LINE 完成通知，並可在設定頁修改暱稱與回應。
+- 提供主題 EXE 一鍵安裝、ZIP 匯入與移除方式。
 
-# 最簡單安裝
+## 最簡單安裝
 
-## 第一步：先安裝 Clawd on Desk
+安裝分成兩步：先安裝 Clawd on Desk 應用程式，再安裝雪絨主題。兩個 EXE 的用途不同，請不要混用。
 
-1. 前往我的 Clawd on Desk 個人化 GitHub 或 Clawd on Desk 官方 GitHub：
-   
-   👉 [開啟 Clawd on Desk 個人化 GitHub](https://github.com/RoyalMilkteaMaster/clawd-on-desk/releases/tag/v0.12.1-notifications.10)
+### 第一步：安裝 Clawd on Desk
 
-   👉 [開啟 Clawd on Desk 官方 GitHub](https://github.com/rullerzhou-afk/clawd-on-desk)
+#### 選擇 A：個人化 Clawd（Windows x64，建議）
 
-   > 我的個人化 Clawd on Desk 新增了:
-    - Discord Bot 完成通知與設定頁。
-    - LINE Messaging API 手機通知與設定頁。
-    - 自訂「通知回應」修改頁面，可自行修改暱稱、以及完成／中斷／權限／選擇 回應。
-    - Discord／LINE 選配通知安裝與除錯指南。
-  
-   建議安裝個人化 Clawd on Desk 。下載 `Clawd-on-Desk-Setup-0.12.1-notifications.10-x64.exe`，雙擊一次即可。安裝器只會把雪絨放到目前 Windows 使用者的 Clawd 主題目錄，不會修改 `app.asar`，也不需要系統管理員權限。
+個人化版本目前是 `0.12.1-notifications.10`，包含：
 
-   若您已經安裝官方 Clawd on Desk，也可以直接下載 個人化 Clawd on Desk，該執行檔會直接添上上述擴充功能。
-
-  3. 雙擊安裝檔，完成 Clawd on Desk 安裝。
-
-  4. 安裝完成後，請先開啟一次 Clawd on Desk，確認它可以正常執行。
-
-  5. 確認 Clawd 可以正常執行後，再回到這個雪絨頁面繼續下一步。
-
-     
-若您已經擁有Clawd on desk[(https://github.com/rullerzhou-afk/clawd-on-desk)](https://github.com/rullerzhou-afk/clawd-on-desk)， 只想要擴增雪絨主題。
-那您只需從 [GitHub Releases](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases) 下載 `Xuerong-HD-Theme-Installer.exe`，雙擊一次即可。安裝器只會把雪絨放到目前 Windows 使用者的 Clawd 主題目錄，不會修改 `app.asar`，也不需要系統管理員權限。
-
-執行成功後，重新開啟 Clawd，進入 `設定 → 主題`，在下方的使用者主題選擇「雪絨 HD」即可更換clawd on desk主題。
-若後續版本有所更新，只需重新至(https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases)下載exe，並重新執行一次該 EXE 即可以更新主題。
-> Windows 可能因為安裝器沒有商業程式碼簽章而顯示 SmartScreen。可改用 ZIP 匯入，不需要略過任何安全警告。
-
-## 第二步：安裝雪絨主題
-
-你可以選擇「一鍵安裝器」或「ZIP 匯入」。
-
-### 選擇 A：使用雪絨一鍵安裝器
-
-1. 下載雪絨安裝器：
+- Discord Bot 完成通知與設定頁。
+- LINE Messaging API 手機通知與設定頁。
+- 可修改暱稱及完成／中斷／權限／選擇回應的「通知回應」頁面。
+- Discord／LINE 選配通知安裝與除錯指南。
 
 <p align="left">
-  <a href="https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.4.1/Xuerong-HD-Theme-Installer.exe">
-    <img src="assets/readme/windows-download-button.svg" width="180" alt="Windows 一鍵下載雪絨安裝器">
+  <a href="https://github.com/RoyalMilkteaMaster/clawd-on-desk/releases/download/v0.12.1-notifications.10/Clawd-on-Desk-Setup-0.12.1-notifications.10-x64.exe">
+    <img src="assets/readme/windows-download-button.svg" width="180" alt="下載個人化 Clawd on Desk 0.12.1-notifications.10 Windows x64 安裝器">
   </a>
 </p>
 
-2. 下載完成後，雙擊：
+直接下載：[`Clawd-on-Desk-Setup-0.12.1-notifications.10-x64.exe`](https://github.com/RoyalMilkteaMaster/clawd-on-desk/releases/download/v0.12.1-notifications.10/Clawd-on-Desk-Setup-0.12.1-notifications.10-x64.exe)
 
-   ```text
-   Xuerong-HD-Theme-Installer.exe
-   ```
+> 這是 **Clawd 應用程式安裝器**，不是雪絨主題安裝器。若 Clawd 正在執行，請先關閉再安裝。通知預設關閉，安裝檔不包含任何使用者的 Discord／LINE Token。
 
-3. 看到「雪絨 HD 已加入 Clawd 主題清單」後，關閉並重新開啟 Clawd。
+完整通知設定請閱讀 [Discord／LINE 選配通知安裝指南](https://github.com/RoyalMilkteaMaster/clawd-on-desk/blob/agent/notifications-0.12.1/docs/guides/notifications.zh-TW.md)。
 
-4. 在 Clawd 裡依序選擇：
+#### 選擇 B：官方 Clawd 0.12.0
 
-   ```text
-   設定 → 主題 → 使用者主題 → 雪絨 HD
-   ```
+- [開啟官方 v0.12.0 Release](https://github.com/rullerzhou-afk/clawd-on-desk/releases/tag/v0.12.0)
+- [直接下載 Windows x64 安裝器](https://github.com/rullerzhou-afk/clawd-on-desk/releases/download/v0.12.0/Clawd-on-Desk-Setup-0.12.0-x64.exe)
 
-5. 完成，雪絨就會出現在桌面上。
+官方版沒有上述個人化 Discord／LINE 通知頁，但可以正常安裝雪絨主題。
 
-> [!NOTE]
-> 這個安裝器只會把雪絨主題放到目前 Windows 使用者的 Clawd 主題資料夾。
->
-> 它不會修改 `app.asar`，也不需要系統管理員權限。
-> 因為這個安裝器沒有購買商業程式碼簽章，Windows 可能會顯示 SmartScreen 提醒。
+安裝完成後，先開啟一次 Clawd，確認程式可以正常執行。
 
-### 選擇 B：使用 Clawd 自己的 ZIP 匯入功能
+### 第二步：安裝雪絨主題
 
-這個方式不需要執行任何第三方 EXE。
+#### 選擇 A：雪絨一鍵主題安裝器
 
-1. 下載雪絨主題 ZIP：
+<p align="left">
+  <a href="https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.4.1/Xuerong-HD-Theme-Installer.exe">
+    <img src="assets/readme/windows-download-button.svg" width="180" alt="下載雪絨 HD 2.4.1 Windows 主題安裝器">
+  </a>
+</p>
 
-   👉 [下載 Xuerong-HD-Clawd-Theme.zip](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.4.1/Xuerong-HD-Clawd-Theme.zip)
+直接下載：[`Xuerong-HD-Theme-Installer.exe`](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.4.1/Xuerong-HD-Theme-Installer.exe)
 
-2. 不要解壓縮這個 ZIP。
+1. 關閉 Clawd。
+2. 雙擊 `Xuerong-HD-Theme-Installer.exe`。
+3. 看到「雪絨 HD 已加入 Clawd 主題清單」後，重新開啟 Clawd。
+4. 選擇 `設定 → 主題 → 使用者主題 → 雪絨 HD`。
 
-3. 開啟 Clawd on Desk。
+> 主題安裝器只會把雪絨放到目前 Windows 使用者的 Clawd 主題資料夾，不會修改 `app.asar`，也不需要系統管理員權限。
 
-4. 依序選擇：
+#### 選擇 B：使用 Clawd 的 ZIP 匯入功能
 
-   ```text
-   設定 → 主題 → 匯入 Clawd 主題套件（.zip）
-   ```
-
-5. 選擇剛才下載的：
-
-   ```text
-   Xuerong-HD-Clawd-Theme.zip
-   ```
-
-6. 匯入完成後，選擇：
-
-   ```text
-   雪絨 HD
-   ```
-
-7. 如果角色沒有立即更新，請關閉並重新開啟 Clawd。
-
----
+1. [下載 `Xuerong-HD-Clawd-Theme.zip`](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.4.1/Xuerong-HD-Clawd-Theme.zip)。
+2. 不要解壓縮 ZIP。
+3. 開啟 Clawd，選擇 `設定 → 主題 → 匯入 Clawd 主題套件（.zip）`。
+4. 選擇下載的 ZIP，再切換至「雪絨 HD」。
+5. 若角色沒有立即更新，請重新啟動 Clawd。
 
 ## 更新雪絨主題
 
-如果你是使用 EXE 安裝，只要下載新版安裝器並重新執行一次即可。
+- 使用 EXE 安裝：下載新版主題安裝器並重新執行，安裝器會先備份舊主題。
+- 使用 ZIP 匯入：若 Clawd 顯示同名主題已存在，先移除舊的「雪絨 HD」，再匯入新版 ZIP。
+- 所有雪絨版本：[GitHub Releases](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases)。
 
-安裝器會先備份原本的雪絨主題，再安裝新版。
+## 移除雪絨主題
 
-如果你是使用 ZIP 匯入，而且 Clawd 顯示同名主題已存在，請先移除舊的「雪絨 HD」，再匯入新版 ZIP。
-
----
-
-## 移除一般主題版
-
-在雪絨安裝器所在的資料夾開啟 PowerShell，執行：
+在主題安裝器所在資料夾開啟 PowerShell：
 
 ```powershell
 .\Xuerong-HD-Theme-Installer.exe /uninstall
 ```
 
-也可以直接關閉 Clawd，然後刪除這個資料夾：
+也可以先關閉 Clawd，再刪除：
 
 ```text
 %APPDATA%\clawd-on-desk\themes\xuerong-hd
 ```
 
-## 系統需求
+## 相容性與系統需求
 
-- 完整雪絨修改版功能：Windows 10／11 x64、Clawd on Desk 0.10.0 以上 、PowerShell 5.1 或更新版本。
-ZIP 也可用於其他 Clawd 支援的平台。
+- 個人化 Clawd：Windows 10／11 x64。
+- 官方 Clawd：雪絨 2.4.1 已針對官方 `0.12.0` 主題流程發佈。
+- 主題 EXE：Windows、PowerShell 5.1 或更新版本。
+- 主題 ZIP：可用於其他 Clawd 支援的平台。
+- 主題安裝器只新增主題，不會加入 Discord／LINE 通知或其他核心功能。
+- 本倉庫的舊版完整修改核心只適用於 Clawd `0.10.0`；不要用舊版 `-ForceUnsupported` 覆蓋 `0.12.x`。
 
-## Clawd 0.12.0 相容性
+## 安全與隱私
 
-| 功能 | 主題 EXE／ZIP 在官方 0.12.0 |
-|---|---|
-| 雪絨一般動畫、睡眠、被抓與互動 | 可用 |
-| 左右邊緣專用雪絨動畫 | 可用 |
-| Clawd 原生 Session HUD／進度資訊 | 可用，仍取決於 Agent 整合是否正常 |
-| 從邊緣直接自由拖曳 X/Y、放開智慧判斷 | 不可用；這是雪絨修改版核心功能 |
-| Codex `request_user_input` 的自訂 HUD 選項卡 | 不可用；這是雪絨修改版監視器功能 |
-| 0.12.0 的新版 WSL、Remote Approval、Discord 等功能 | 保留，因為主題安裝器不修改核心 |
-
-## 安全設定
-
-安裝器只合併 [settings/xuerong-defaults.json](settings/xuerong-defaults.json) 內的白名單設定，不會複製或覆蓋：
-
-- Codex／Clawd 工作紀錄
-- 工作階段別名
-- 遠端 SSH 設定
-- Telegram 設定
-- Agent 私人設定
-- Hardware Buddy 設定
+- 雪絨主題安裝器不會覆蓋工作紀錄、SSH、Agent、Telegram、Discord 或 LINE 設定。
+- 個人化 Clawd 安裝檔不包含 Bot Token、LINE Channel Access Token、頻道 ID 或使用者 ID。
+- 未簽署的 Windows 安裝器可能顯示 SmartScreen。若不想執行主題 EXE，可改用 ZIP 匯入。
+- 雪絨主題的預設白名單設定位於 [settings/xuerong-defaults.json](settings/xuerong-defaults.json)。
 
 ## 版本來源
 
-- 上游：[rullerzhou-afk/clawd-on-desk](https://github.com/rullerzhou-afk/clawd-on-desk)
-- 上游基準 commit：`9ccafb84680d7068baa35e2d91c0800f81c7b475`
-- Clawd 版本：`0.10.0`
-- 雪絨主題：`2.1.3`
-- 雪絨程式套件：`0.11.0`
+- 個人化 Clawd：[RoyalMilkteaMaster/clawd-on-desk](https://github.com/RoyalMilkteaMaster/clawd-on-desk)
+- 個人化 Clawd Release：[`v0.12.1-notifications.10`](https://github.com/RoyalMilkteaMaster/clawd-on-desk/releases/tag/v0.12.1-notifications.10)
+- 官方上游：[rullerzhou-afk/clawd-on-desk](https://github.com/rullerzhou-afk/clawd-on-desk)
+- 雪絨主題：`2.4.1`
+- 舊版完整修改核心：Clawd `0.10.0`、雪絨程式套件 `0.11.0`
+- 舊版上游基準 commit：`9ccafb84680d7068baa35e2d91c0800f81c7b475`
 
 原始上游繁中說明保留在 [docs/UPSTREAM-README.zh-TW.md](docs/UPSTREAM-README.zh-TW.md)。
 
@@ -199,7 +149,7 @@ powershell -ExecutionPolicy Bypass -File .\installer\build-theme-installer.ps1
 powershell -ExecutionPolicy Bypass -File .\installer\test-theme-installer.ps1
 ```
 
-雪絨相關測試與已知環境限制記錄在 [docs/VALIDATION.md](docs/VALIDATION.md)。
+驗證紀錄請見 [docs/VALIDATION.md](docs/VALIDATION.md)。
 
 ## 授權
 
