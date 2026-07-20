@@ -102,6 +102,10 @@ bin/cc-connect-clawd/*/cc-connect-clawd.exe
 # GIF recording tools (not part of main project)
 scripts/*
 !scripts/build-xuerong-smooth.py
+!scripts/rebuild-xuerong-animation.py
+!scripts/rebuild-xuerong-hold-animation.py
+!scripts/rebuild-xuerong-edge-reveal.py
+!scripts/clean-xuerong-detached-components.py
 !scripts/qa-xuerong-smooth.py
 !scripts/remote-deploy.sh
 !scripts/run-clawdbot-stress.sh

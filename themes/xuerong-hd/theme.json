@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "name": "雪絨 HD",
   "author": "leslie + Codex",
-  "version": "2.4.1",
+  "version": "2.5.9",
   "description": "Clawd 專用雪絨：一般動作慢 15%，重要反應與過場慢 20%，抓取、睡眠與待機維持原速。",
   "viewBox": {
     "x": 0,
@@ -140,9 +140,9 @@
       "notification": 4500,
       "carrying": 3000
     },
-    "yawnDuration": 2112,
-    "collapseDuration": 2376,
-    "wakeDuration": 2820,
+    "yawnDuration": 2500,
+    "collapseDuration": 3000,
+    "wakeDuration": 3500,
     "deepSleepTimeout": 600000,
     "mouseIdleTimeout": 20000,
     "mouseSleepTimeout": 60000
@@ -196,22 +196,22 @@
       "file": "grabbed.webp"
     },
     "clickLeft": {
-      "file": "waving.webp",
-      "duration": 2500
+      "file": "poke-left.webp",
+      "duration": 2400
     },
     "clickRight": {
-      "file": "waiting.webp",
-      "duration": 2500
+      "file": "poke-right.webp",
+      "duration": 2400
     },
     "annoyed": {
-      "file": "failed.webp",
-      "duration": 3500
+      "file": "annoyed.webp",
+      "duration": 3200
     },
     "double": {
       "files": [
-        "jumping.webp"
+        "double-love.webp"
       ],
-      "duration": 3500
+      "duration": 2800
     }
   },
   "miniMode": {
