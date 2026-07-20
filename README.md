@@ -30,7 +30,7 @@
 
 1. 前往我的 Clawd on Desk 個人化 GitHub 或 Clawd on Desk 官方 GitHub：
    
-   👉 [開啟 Clawd on Desk 個人化 GitHub](https://github.com/RoyalMilkteaMaster/clawd-on-desk/releases/tag/v0.12.1-notifications.10)
+   👉 [開啟 Clawd on Desk 個人化 GitHub](https://github.com/RoyalMilkteaMaster/clawd-on-desk/releases/tag/v0.12.1-notifications.11)
 
    👉 [開啟 Clawd on Desk 官方 GitHub](https://github.com/rullerzhou-afk/clawd-on-desk)
 
@@ -40,7 +40,7 @@
     - 自訂「通知回應」修改頁面，可自行修改暱稱、以及完成／中斷／權限／選擇 回應。
     - Discord／LINE 選配通知安裝與除錯指南。
   
-   建議安裝個人化 Clawd on Desk 。下載 `Clawd-on-Desk-Setup-0.12.1-notifications.10-x64.exe`，雙擊一次即可。安裝器只會把雪絨放到目前 Windows 使用者的 Clawd 主題目錄，不會修改 `app.asar`，也不需要系統管理員權限。
+   建議安裝個人化 Clawd on Desk。下載 `Clawd-on-Desk-Setup-0.12.1-notifications.11-x64.exe`，雙擊一次即可。這個安裝器會安裝或升級 Clawd on Desk 個人化版本；雪絨主題請依照下方第二步另行安裝。
 
    若您已經安裝官方 Clawd on Desk，也可以直接下載 個人化 Clawd on Desk，該執行檔會直接添上上述擴充功能。
 
