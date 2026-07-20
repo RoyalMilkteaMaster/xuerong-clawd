@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "name": "雪絨 HD",
   "author": "leslie + Codex",
-  "version": "2.5.9",
+  "version": "2.5.10",
   "description": "Clawd 專用雪絨：一般動作慢 15%，重要反應與過場慢 20%，抓取、睡眠與待機維持原速。",
   "viewBox": {
     "x": 0,
