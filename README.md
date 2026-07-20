@@ -42,7 +42,7 @@
 這條路徑使用 Clawd 0.12.0 自己的匯入器。
 
 <p align="left">
-  <a href="https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.4.1/Xuerong-HD-Theme-Installer.exe">
+  <a href="https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.5.9/Xuerong-HD-Theme-Installer.exe">
     <img src="assets/readme/windows-download-button.svg" width="180" alt="Windows 一鍵下載雪絨安裝器">
   </a>
 </p>
@@ -90,7 +90,7 @@
 
 1. 下載雪絨安裝器：
 
-   👉 [下載 Xuerong-HD-Theme-Installer.exe](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.4.1/Xuerong-HD-Theme-Installer.exe)
+   👉 [下載 Xuerong-HD-Theme-Installer.exe](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.5.9/Xuerong-HD-Theme-Installer.exe)
 
 2. 下載完成後，雙擊：
 
@@ -127,7 +127,7 @@
 
 1. 下載雪絨主題 ZIP：
 
-   👉 [下載 Xuerong-HD-Clawd-Theme.zip](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.4.1/Xuerong-HD-Clawd-Theme.zip)
+   👉 [下載 Xuerong-HD-Clawd-Theme.zip](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.5.9/Xuerong-HD-Clawd-Theme.zip)
 
 2. 不要解壓縮這個 ZIP。
 
