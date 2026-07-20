@@ -95,7 +95,7 @@ $sourceInput = Read-NormalizedText (Join-Path $repositoryRoot "agents\codex-user
 $releaseInput = Read-NormalizedText (Join-Path $releaseRoot "app.asar.unpacked\agents\codex-user-input.js")
 Assert-Equal $releaseInput $sourceInput "Release Codex input parser does not match source"
 
-$generatedPathPattern = '\\(?:node_modules|build)\\'
+$generatedPathPattern = '\\(?:node_modules|build|dist)\\'
 $oversized = Get-ChildItem -LiteralPath $repositoryRoot -Recurse -File |
   Where-Object { $_.FullName -notmatch $generatedPathPattern -and $_.Length -ge 100MB }
 if ($oversized) {
