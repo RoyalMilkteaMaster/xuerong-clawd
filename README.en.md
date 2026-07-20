@@ -2,13 +2,13 @@
 
 [繁體中文](README.md)
 
-Xuerong (雪絨) is a white ragdoll catgirl desktop companion theme for Clawd on Desk. This repository contains the Xuerong 2.5.9 theme, a safe theme-only installer for Clawd 0.12.0, and the complete corresponding source for the legacy Clawd 0.10.0 Windows runtime patch.
+Xuerong (雪絨) is a white ragdoll catgirl desktop companion theme for Clawd on Desk. This repository contains the Xuerong 2.5.10 theme, a safe theme-only installer for Clawd 0.12.0, and the complete corresponding source for the legacy Clawd 0.10.0 Windows runtime patch.
 
 ![Xuerong 30 FPS animation contact sheet](themes/xuerong-hd/qa/smooth-v22/contact-sheet-01.png)
 
 ## Easiest install (recommended for Clawd 0.12.0)
 
-Download `Xuerong-HD-Theme-Installer.exe` from [GitHub Releases](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases) and double-click it. It installs only the Xuerong theme for the current Windows user, does not replace `app.asar`, and does not require administrator privileges.
+Download [`Xuerong-HD-Theme-Installer.exe`](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/latest/download/Xuerong-HD-Theme-Installer.exe) and double-click it. It installs only the Xuerong theme for the current Windows user, does not replace `app.asar`, and does not require administrator privileges.
 
 Restart Clawd, open `Settings → Theme`, then select “Xuerong HD” under user themes. Running the EXE again updates the theme. To remove it:
 
@@ -16,7 +16,7 @@ Restart Clawd, open `Settings → Theme`, then select “Xuerong HD” under use
 .\Xuerong-HD-Theme-Installer.exe /uninstall
 ```
 
-If you prefer not to run a third-party EXE, download `Xuerong-HD-Clawd-Theme.zip` and choose `Settings → Theme → Import Clawd theme package (.zip)`. This uses Clawd 0.12.0's built-in importer.
+If you prefer not to run a third-party EXE, download [`Xuerong-HD-Clawd-Theme.zip`](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/latest/download/Xuerong-HD-Clawd-Theme.zip) and choose `Settings → Theme → Import Clawd theme package (.zip)`. This uses Clawd 0.12.0's built-in importer.
 
 > Windows may show SmartScreen because the installer does not have a commercial code-signing certificate. Use the ZIP path instead if you do not want to bypass a warning.
 
@@ -85,7 +85,7 @@ The installer merges only the keys in [settings/xuerong-defaults.json](settings/
 - Upstream: [rullerzhou-afk/clawd-on-desk](https://github.com/rullerzhou-afk/clawd-on-desk)
 - Upstream base commit: `9ccafb84680d7068baa35e2d91c0800f81c7b475`
 - Upstream application version: `0.10.0`
-- Xuerong theme version: `2.5.9`
+- Xuerong theme version: `2.5.10`
 - Xuerong runtime package version: `0.11.0`
 
 The original upstream documentation is retained in [docs/UPSTREAM-README.md](docs/UPSTREAM-README.md).

@@ -3,7 +3,7 @@
 [English](README.en.md)
 
 雪絨是一隻白色母布偶貓貓娘桌面寵物。
-這個倉庫包含完整對應原始碼、雪絨 2.5.9 主題、已測試的 Windows x64 執行套件、安全設定範本，以及可以復原的一鍵安裝腳本。
+這個倉庫包含完整對應原始碼、雪絨 2.5.10 主題、已測試的 Windows x64 執行套件、安全設定範本，以及可以復原的一鍵安裝腳本。
 
 ![溫柔雪藍](01-gentle-snow-blue.png)
 
@@ -67,7 +67,7 @@
 1. 下載雪絨安裝器：
 
 <p align="left">
-  <a href="https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.5.9/Xuerong-HD-Theme-Installer.exe">
+  <a href="https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/latest/download/Xuerong-HD-Theme-Installer.exe">
     <img src="assets/readme/windows-download-button.svg" width="180" alt="Windows 一鍵下載雪絨安裝器">
   </a>
 </p>
@@ -100,7 +100,7 @@
 
 1. 下載雪絨主題 ZIP：
 
-   👉 [下載 Xuerong-HD-Clawd-Theme.zip](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/download/xuerong-theme-v2.5.9/Xuerong-HD-Clawd-Theme.zip)
+   👉 [下載 Xuerong-HD-Clawd-Theme.zip](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/latest/download/Xuerong-HD-Clawd-Theme.zip)
 
 2. 不要解壓縮這個 ZIP。
 
@@ -184,7 +184,7 @@ ZIP 也可用於其他 Clawd 支援的平台。
 - 上游：[rullerzhou-afk/clawd-on-desk](https://github.com/rullerzhou-afk/clawd-on-desk)
 - 上游基準 commit：`9ccafb84680d7068baa35e2d91c0800f81c7b475`
 - Clawd 版本：`0.10.0`
-- 雪絨主題：`2.5.9`
+- 雪絨主題：`2.5.10`
 - 雪絨程式套件：`0.11.0`
 
 原始上游繁中說明保留在 [docs/UPSTREAM-README.zh-TW.md](docs/UPSTREAM-README.zh-TW.md)。

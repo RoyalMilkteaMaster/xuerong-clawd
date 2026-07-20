@@ -12,8 +12,8 @@ using System.Windows.Forms;
 [assembly: AssemblyDescription("將雪絨 HD 安裝到 Clawd on Desk 的使用者主題目錄")]
 [assembly: AssemblyCompany("RoyalMilkteaMaster")]
 [assembly: AssemblyProduct("雪絨 HD 主題安裝器")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("2.5.10.0")]
+[assembly: AssemblyFileVersion("2.5.10.0")]
 
 internal static class XuerongThemeInstaller
 {
