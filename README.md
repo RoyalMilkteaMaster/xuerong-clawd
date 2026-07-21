@@ -192,20 +192,125 @@ ZIP 也可用於其他 Clawd 支援的平台。
 
 ## 開發與驗證
 
-### 雪絨動畫 Agents／Skill
+### 使用 Codex 製作萌寵動畫
 
 本倉庫包含 repo-local `xuerong-animation-studio` skill，以及動畫製作、程式化 QA、視覺 QA、發布整合共 4 個專職 Codex agents。完整分工、GPU 排程、24／30 FPS、5% 尺寸限制、透明背景、首尾接縫與驗收規格請參閱 [雪絨動畫多 Agent 系統](docs/agent-system/XUERONG_ANIMATION_AGENTS.md)。
 
-clone 本倉庫後請開啟新的 Codex 任務，並使用：
+#### 修改雪絨
+
+clone 本倉庫後，使用 Codex 開啟專案根目錄並建立一個新的任務，再輸入：
 
 ```text
 使用 $xuerong-animation-studio 幫我新增或修改雪絨動畫。
+先讀取 AGENTS.md、skill 的三份 references、theme.json、相鄰狀態與現有基準。
+先提出動作設計、節奏、FPS、總長度與驗收方式，等我確認後才開始製作。
 ```
 
-驗證 agent／skill 套件：
+#### 根據自己的圖片建立新寵物
+
+請先 Fork 或 clone 本倉庫，再把你有權使用的角色圖片附加到 Codex 任務。建議至少提供一張清楚、完整、沒有遮擋的正面全身圖；若有側面、背面、表情或服裝細節圖，也一起提供。
+
+新角色必須使用獨立的 theme ID，例如 `my-cat`。不要覆蓋 `themes/xuerong-hd`，也不要把雪絨圖片當作自己的角色素材重新發布。雪絨素材的使用條件請參閱 [ASSET-LICENSE.md](ASSET-LICENSE.md)。
+
+第一段提示詞只做規劃，不要立刻生成全部動畫：
+
+```text
+我要根據這個任務附上的參考圖片，製作一個新的 Clawd on Desk 動態寵物。
+
+角色名稱：<角色名稱>
+theme ID：<只用小寫英文、數字與連字號，例如 my-cat>
+角色個性：<例如活潑、害羞、黏人>
+一般模式：完整角色
+邊緣模式：專用 Q 版半身角色
+
+請把 xuerong-clawd 當作技術與檔案格式範例，但不要複製雪絨圖片，也不要修改 themes/xuerong-hd。
+
+目前只做以下工作：
+1. 讀取 AGENTS.md、themes/xuerong-hd/theme.json、狀態映射與動畫 QA 規格。
+2. 檢查我的參考圖片是否足以保持角色一致性。
+3. 列出新主題需要的全部一般、互動、睡眠與邊緣模式動畫。
+4. 提出角色基準、畫布、尺寸、方向、24 或 30 FPS、動畫批次與驗收計畫。
+5. 告訴我還缺哪些圖片或決定。
+
+不要生成圖片、不要修改正式資產、不要安裝、不要 commit 或 push。
+提出計畫後停下來等我確認。
+```
+
+確認計畫後，用第二段提示詞建立新角色自己的工作環境：
+
+```text
+我確認剛才的計畫。請為 <theme-id> 建立獨立的開發結構，但先不要製作動畫。
+
+要求：
+1. 建立 themes/<theme-id>/theme.json 與 assets 目錄，不修改 xuerong-hd。
+2. 以現有 theme schema 為格式參考，換成新角色名稱、作者、版本與獨立檔名。
+3. 從 xuerong-animation-studio 的流程建立 <theme-id>-animation-studio，但必須把雪絨專有名稱、路徑、髮色、服裝與動作描述全部替換成新角色規格。
+4. 建立對應的 Builder、Deterministic QA、Visual QA、Release Integrator agents。
+5. 設定候選輸出到 build/<theme-id>-animation-runs/，禁止直接生成到正式 assets。
+6. 建立或更新 bundle validator，確認 skill、agents、theme ID 與所有必要路徑存在。
+7. 顯示完整 diff、驗證結果與下一步；不要安裝、commit 或 push。
+```
+
+工作環境通過驗證後，用第三段提示詞建立兩張角色基準：
+
+```text
+使用 $<theme-id>-animation-studio，根據我核准的參考圖片製作角色基準候選。
+
+先只製作：
+1. 一般模式 idle：512 x 512 RGBA 透明背景。
+2. 邊緣模式 mini-idle：專為只露出半身設計，不是把一般模式直接縮小。
+
+要求保持臉、眼睛、頭髮、耳朵、服裝、配件、色彩與比例一致。
+請輸出透明、棋盤、深色與洋紅背景預覽，檢查白膜、破圖、游離碎片與透明邊緣。
+先讓我核准兩張基準，再製作其他動畫；不要整合到正式 assets。
+```
+
+兩張基準核准後，再分批製作動畫。不要一次要求 Codex 生成全部動作：
+
+```text
+使用 $<theme-id>-animation-studio，依照已核准的 idle 與 mini-idle 基準製作第一批候選動畫。
+
+本批動作：idle、working/typing、grabbed、poke-left、poke-right、double-love、annoyed。
+輸出固定 24 FPS 或 30 FPS，增加幀數時保持原始總長度與節奏。
+人物視覺尺寸相對同模式基準最多差 5%。
+檢查重複幀、跳幀、忽快忽慢、鬼影、殘影、果凍感、局部扭曲、五官漂移、白膜與首尾接縫。
+同一時間最多執行一個本機 GPU 工作；啟動前先檢查 GPU 是否正被其他專案使用。
+每個動作完成後執行 Deterministic QA 與 Visual QA，提供完整預覽和逐項 PASS/FAIL。
+不要整合失敗或尚未經我核准的候選動畫。
+```
+
+建議後續分成：
+
+- 第二批：`yawning → dozing → collapsing → sleeping → waking → idle` 完整睡眠鏈。
+- 第三批：`mini-enter`、`mini-idle`、`mini-peek`、`mini-working`、`mini-alert`、`mini-happy`、`mini-sleep` 與退出過場。
+- 第四批：其他通知、錯誤、思考、行走與角色專屬動作。
+
+看到完整預覽並確認後，再下整合指令：
+
+```text
+我核准以下候選檔與雜湊：<列出檔案與 SHA-256>。
+
+請使用 <theme-id> 的 Release Integrator：
+1. 備份目前正式版本。
+2. 只整合我核准的候選檔。
+3. 驗證 theme.json、全部資產、動畫時長、24/30 FPS、透明背景、尺寸與狀態映射。
+4. 從正式路徑重新產生完整預覽。
+5. 建立可由 Clawd 匯入的主題 ZIP。
+
+目前不要安裝、commit、push、tag 或發布 Release；完成後先回報檔案、雜湊與驗證結果。
+```
+
+如果最後希望 Codex 安裝或上傳 GitHub，請再明確說出需要的動作，例如：
+
+```text
+我確認正式預覽。請安裝到我目前的 Clawd on Desk，驗證安裝後檔案雜湊一致，然後建立分支、commit、push 並開 PR。不要提交參考圖、暫存幀、模型、快取或私人設定。
+```
+
+#### 驗證雪絨 Agent／Skill 套件
 
 ```powershell
 python .\scripts\validate-xuerong-agent-bundle.py --project-root .
+python .\scripts\validate-xuerong-v213-smooth.py --self-check
 ```
 
 ```powershell
