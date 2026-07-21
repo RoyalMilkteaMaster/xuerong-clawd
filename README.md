@@ -184,7 +184,7 @@ ZIP 也可用於其他 Clawd 支援的平台。
 
 - 上游：[rullerzhou-afk/clawd-on-desk](https://github.com/rullerzhou-afk/clawd-on-desk)
 - 上游基準 commit：`9ccafb84680d7068baa35e2d91c0800f81c7b475`
-- Clawd 版本：`0.10.0`
+- Clawd 版本：`Clawd 0.12.1-notifications.11
 - 雪絨主題：`2.5.10`
 - 雪絨程式套件：`0.11.0`
 
