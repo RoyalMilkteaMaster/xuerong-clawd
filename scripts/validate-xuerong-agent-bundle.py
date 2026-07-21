@@ -121,6 +121,15 @@ def main() -> int:
     if not ownership_doc.is_file():
         errors.append(f"missing {ownership_doc}")
 
+    for relative in (
+        "scripts/validate-xuerong-v213-smooth.py",
+        "scripts/qa-xuerong-smooth.py",
+        "scripts/validate-theme.js",
+    ):
+        path = root / relative
+        if not path.is_file():
+            errors.append(f"missing {path}")
+
     print(f"Project root: {root}")
     print(f"Xuerong agents: {len(REQUIRED_AGENTS & found.keys())}/{len(REQUIRED_AGENTS)}")
     for error in errors:

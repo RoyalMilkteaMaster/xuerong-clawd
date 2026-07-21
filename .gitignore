@@ -120,6 +120,7 @@ scripts/*
 !scripts/fetch-sidecar-binaries.js
 !scripts/validate-release.ps1
 !scripts/validate-xuerong-agent-bundle.py
+!scripts/validate-xuerong-v213-smooth.py
 
 # oh-my-cursor state
 .omc/
