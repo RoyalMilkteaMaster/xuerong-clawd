@@ -30,8 +30,8 @@
 
 1. 前往我的 Clawd on Desk 個人化 GitHub 或 Clawd on Desk 官方 GitHub：
    
-   👉 [開啟 Clawd on Desk 個人化 GitHub](https://github.com/RoyalMilkteaMaster/clawd-on-desk/releases/tag/v0.12.1-notifications.11)
-
+   👉 [開啟 Clawd on Desk 個人化 GitHub](https://github.com/RoyalMilkteaMaster/clawd-on-desk/releases/tag/v0.12.1-notifications.12)
+   
    👉 [開啟 Clawd on Desk 官方 GitHub](https://github.com/rullerzhou-afk/clawd-on-desk)
 
    > 我的個人化 Clawd on Desk 新增了:
