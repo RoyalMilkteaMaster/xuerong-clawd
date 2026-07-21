@@ -191,6 +191,22 @@ ZIP 也可用於其他 Clawd 支援的平台。
 
 ## 開發與驗證
 
+### 雪絨動畫 Agents／Skill
+
+本倉庫包含 repo-local `xuerong-animation-studio` skill，以及動畫製作、程式化 QA、視覺 QA、發布整合共 4 個專職 Codex agents。完整分工、GPU 排程、24／30 FPS、5% 尺寸限制、透明背景、首尾接縫與驗收規格請參閱 [雪絨動畫多 Agent 系統](docs/agent-system/XUERONG_ANIMATION_AGENTS.md)。
+
+clone 本倉庫後請開啟新的 Codex 任務，並使用：
+
+```text
+使用 $xuerong-animation-studio 幫我新增或修改雪絨動畫。
+```
+
+驗證 agent／skill 套件：
+
+```powershell
+python .\scripts\validate-xuerong-agent-bundle.py --project-root .
+```
+
 ```powershell
 npm ci
 npm test

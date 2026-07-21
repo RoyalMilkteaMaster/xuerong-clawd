@@ -1,0 +1,8 @@
+interface:
+  display_name: "雪絨動畫工作室"
+  short_description: "多 Agent 協作製作、修復、驗證與發佈雪絨動畫"
+  brand_color: "#B9E5FF"
+  default_prompt: "使用 $xuerong-animation-studio 為雪絨新增或修改動畫，保留角色基準、24/30 FPS、5% 尺寸限制與完整 QA。"
+
+policy:
+  allow_implicit_invocation: true

@@ -16,6 +16,8 @@ PLAN-*.md
 codex-*.md
 CHANGELOG-draft.md
 docs/**
+!docs/agent-system/
+!docs/agent-system/XUERONG_ANIMATION_AGENTS.md
 !docs/guides/
 !docs/guides/copilot-setup.md
 !docs/guides/copilot-setup.zh-CN.md
@@ -117,6 +119,7 @@ scripts/*
 !scripts/verify-sidecar-binaries.js
 !scripts/fetch-sidecar-binaries.js
 !scripts/validate-release.ps1
+!scripts/validate-xuerong-agent-bundle.py
 
 # oh-my-cursor state
 .omc/
