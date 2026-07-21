@@ -199,7 +199,7 @@ ZIP 也可用於其他 Clawd 支援的平台。
 (docs/agent-system/XUERONG_ANIMATION_AGENTS.md)。
 
 
-### 根據自己的圖片使用 Codex 製作自己的萌寵
+### 使用 Codex 製作自己的專屬萌寵
 
 clone 本倉庫後，使用 Codex 開啟專案根目錄並建立一個新的任務：
 
