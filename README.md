@@ -190,28 +190,37 @@ ZIP 也可用於其他 Clawd 支援的平台。
 
 原始上游繁中說明保留在 [docs/UPSTREAM-README.zh-TW.md](docs/UPSTREAM-README.zh-TW.md)。
 
-## 開發與驗證
+## 更新:開源自主開發桌面萌寵agents與skills
 
-### 使用 Codex 製作萌寵動畫
+本倉庫公開包含 repo-local `xuerong-animation-studio` skill，以及動畫製作、程式化 QA、視覺 QA、發布整合共 4 個專職 Codex agents。
+供想自行開發萌寵的使用者使用。
+`xuerong-animation-studio` skill 包含:完整分工、GPU 排程、24／30 FPS限制、5% 角色誤差尺寸限制、紅綠白色版去背、首尾接縫與驗收。
+規格請參閱 [雪絨動畫多 Agent 系統]
+(docs/agent-system/XUERONG_ANIMATION_AGENTS.md)。
 
-本倉庫包含 repo-local `xuerong-animation-studio` skill，以及動畫製作、程式化 QA、視覺 QA、發布整合共 4 個專職 Codex agents。完整分工、GPU 排程、24／30 FPS、5% 尺寸限制、透明背景、首尾接縫與驗收規格請參閱 [雪絨動畫多 Agent 系統](docs/agent-system/XUERONG_ANIMATION_AGENTS.md)。
 
-#### 修改雪絨
+### 根據自己的圖片使用 Codex 製作自己的萌寵
 
-clone 本倉庫後，使用 Codex 開啟專案根目錄並建立一個新的任務，再輸入：
+clone 本倉庫後，使用 Codex 開啟專案根目錄並建立一個新的任務：
 
-```text
+將你想要的萌寵圖片置入codex聊天窗，下提示詞:
 使用 $xuerong-animation-studio 幫我新增或修改雪絨動畫。
-先讀取 AGENTS.md、skill 的三份 references、theme.json、相鄰狀態與現有基準。
-先提出動作設計、節奏、FPS、總長度與驗收方式，等我確認後才開始製作。
-```
+使用 $xuerong-animation-studio 修改雪絨的 .webp，建立 job contract ，開始幫我生成桌寵動圖。
+
 
 #### 根據自己的圖片建立新寵物
 
-請先 Fork 或 clone 本倉庫，再把你有權使用的角色圖片附加到 Codex 任務。建議至少提供一張清楚、完整、沒有遮擋的正面全身圖；若有側面、背面、表情或服裝細節圖，也一起提供。
+請先 Fork 或 clone 本倉庫，再把你有權使用的角色圖片附加到 Codex 任務。
+建議至少提供一張清楚、完整、沒有遮擋的正面全身圖；若有側面、背面、表情或服裝細節圖，也一起提供。
 
-新角色必須使用獨立的 theme ID，例如 `my-cat`。不要覆蓋 `themes/xuerong-hd`，也不要把雪絨圖片當作自己的角色素材重新發布。雪絨素材的使用條件請參閱 [ASSET-LICENSE.md](ASSET-LICENSE.md)。
+新角色必須使用獨立的 theme ID，例如 `my-cat`。
+不要覆蓋 `themes/xuerong-hd`，也不要把雪絨圖片當作自己的角色素材重新發布。
+雪絨素材的使用條件請參閱 [ASSET-LICENSE.md](ASSET-LICENSE.md)。
 
+可以直接分批複製以下提示詞，分批生成動畫。
+(一次完成所有動畫，品質會比較差，分批製作動畫效果會較好)
+
+1.
 第一段提示詞只做規劃，不要立刻生成全部動畫：
 
 ```text
@@ -236,6 +245,7 @@ theme ID：<只用小寫英文、數字與連字號，例如 my-cat>
 提出計畫後停下來等我確認。
 ```
 
+2.
 確認計畫後，用第二段提示詞建立新角色自己的工作環境：
 
 ```text
@@ -251,6 +261,7 @@ theme ID：<只用小寫英文、數字與連字號，例如 my-cat>
 7. 顯示完整 diff、驗證結果與下一步；不要安裝、commit 或 push。
 ```
 
+3.
 工作環境通過驗證後，用第三段提示詞建立兩張角色基準：
 
 ```text
@@ -285,26 +296,9 @@ theme ID：<只用小寫英文、數字與連字號，例如 my-cat>
 - 第三批：`mini-enter`、`mini-idle`、`mini-peek`、`mini-working`、`mini-alert`、`mini-happy`、`mini-sleep` 與退出過場。
 - 第四批：其他通知、錯誤、思考、行走與角色專屬動作。
 
-看到完整預覽並確認後，再下整合指令：
+> (一次完成所有動畫，品質會比較差，分批製作動畫效果會較好)
 
-```text
-我核准以下候選檔與雜湊：<列出檔案與 SHA-256>。
 
-請使用 <theme-id> 的 Release Integrator：
-1. 備份目前正式版本。
-2. 只整合我核准的候選檔。
-3. 驗證 theme.json、全部資產、動畫時長、24/30 FPS、透明背景、尺寸與狀態映射。
-4. 從正式路徑重新產生完整預覽。
-5. 建立可由 Clawd 匯入的主題 ZIP。
-
-目前不要安裝、commit、push、tag 或發布 Release；完成後先回報檔案、雜湊與驗證結果。
-```
-
-如果最後希望 Codex 安裝或上傳 GitHub，請再明確說出需要的動作，例如：
-
-```text
-我確認正式預覽。請安裝到我目前的 Clawd on Desk，驗證安裝後檔案雜湊一致，然後建立分支、commit、push 並開 PR。不要提交參考圖、暫存幀、模型、快取或私人設定。
-```
 
 #### 驗證雪絨 Agent／Skill 套件
 
