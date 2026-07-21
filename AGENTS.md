@@ -55,6 +55,17 @@ bash test-macos.sh
 bash test-oneshot-gate.sh [state] [seconds]
 ```
 
+## Xuerong Animation Agents
+
+雪絨動畫新增、重製、補幀、調速、透明背景修復、首尾接縫或發佈工作一律使用 repo-local `xuerong-animation-studio` skill。Root Agent 負責凍結基準、job contract、GPU 排程、檔案擁有權、使用者核准與整合決策；專職 Agent 定義在 `.codex/agents/`：
+
+- `xuerong_animation_builder`：只寫候選 run，不碰正式 theme assets。
+- `xuerong_deterministic_qa`：只寫 QA 報告與預覽，不修改候選像素。
+- `xuerong_visual_quality_reviewer`：唯讀視覺審查。
+- `xuerong_release_integrator`：只有使用者核准後才整合；安裝、commit、push、tag、package、release 仍各自需要明確要求。
+
+同一時間最多一個本機 GPU 動畫工作，共享檔案只能有一位 writer。完整規格見 `.agents/skills/xuerong-animation-studio/` 與 `docs/agent-system/XUERONG_ANIMATION_AGENTS.md`。修改這些指令層檔案後，開新 Codex 任務才會可靠重新載入。
+
 新安装默认只把 Claude Code 和 Codex 标记为已安装并启用；其他 agent 默认未安装、未启用。正常启动时，Clawd 只会为 `integrationInstalled=true` 且 `enabled=true` 的 agent 自动同步 Claude / Codex / Copilot / Gemini / Antigravity / Cursor / CodeBuddy / Kiro / Kimi / Qwen / CodeWhale / Qoder / Reasonix hooks、opencode / OpenClaw / Hermes plugins 和 Pi extension。Settings Agent 页的 Install 会安装并启用该集成；Uninstall 会卸载 Clawd 管理的 hook/plugin/extension，并同时把该 agent 设为未安装、未启用。单独关闭 enabled 只会跳过启动同步并屏蔽事件/权限入口，不卸载用户已有 hooks / plugins / extensions；重新启用未安装 agent 只打开事件入口，不会写本机集成文件。手动安装命令主要用于调试、重装或远程部署。
 Copilot CLI 同步走 `<COPILOT_HOME 或 ~/.copilot>/hooks/hooks.json`，marker-based 增量合并只接管含 `copilot-hook.js` 标记的条目，用户其他 entry / 其他 `hooks/*.json` 文件原样保留；hooks.json 或 `settings.json` 顶层 `disableAllHooks: true` 时 doctor 报 warning（不挂 Fix 按钮）。详见 `docs/guides/copilot-setup.md`。
 

@@ -1,0 +1,8 @@
+# Merge this fragment into an existing .codex/config.toml instead of replacing user settings.
+
+[agents]
+# Root + up to three specialists. Local GPU work is still serialized by the skill contract.
+max_threads = 4
+# Specialists must return to Root instead of recursively spawning more workers.
+max_depth = 1
+interrupt_message = true
