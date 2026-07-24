@@ -52,7 +52,13 @@
 
      
 若您已經擁有官方版 Clawd on desk， 只想要擴增雪絨主題。
-那您只需從 [GitHub Releases](https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases) 下載 `Xuerong-HD-Theme-Installer.exe`，雙擊一次即可。
+那您只需從此處
+<p align="left">
+  <a href="https://github.com/RoyalMilkteaMaster/xuerong-clawd/releases/latest/download/Xuerong-HD-Theme-Installer.exe">
+    <img src="assets/readme/windows-download-button.svg" width="180" alt="Windows 一鍵下載雪絨安裝器">
+  </a>
+</p>
+下載 `Xuerong-HD-Theme-Installer.exe`，雙擊一次即可。
 安裝器只會把雪絨放到目前 Windows 使用者的 Clawd 主題目錄，不會修改 `app.asar`，也不需要系統管理員權限。
 
 執行成功後，重新開啟 Clawd，進入 `設定 → 主題`，在下方的使用者主題選擇「雪絨 HD」即可更換clawd on desk主題。
